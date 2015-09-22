@@ -2,6 +2,9 @@ OLD_LOCAL_PATH := $(LOCAL_PATH)
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
+# Too many clang warnings/errors, see b/23163853.
+LOCAL_CLANG := false
+
 LOCAL_CFLAGS+= -D_ANDROID_
 LOCAL_CFLAGS += -Wall -Wextra -Werror -Wno-unused-parameter
 
