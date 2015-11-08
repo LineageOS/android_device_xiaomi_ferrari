@@ -212,3 +212,6 @@ ro.com.android.mobiledata=false
 ro.product.manufacturer=Xiaomi
 keyguard.no_require_sim=true
 persist.power.useautobrightadj=true
+
+# Disable QMI logspam
+persist.data.qmi.adb_logmask=0
