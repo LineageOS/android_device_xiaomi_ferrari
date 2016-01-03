@@ -30,5 +30,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="ferrari" \
     PRODUCT_NAME="ferrari" \
-    BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:5.1.1/LMY48B:userdebug/test-keys" \
-    PRIVATE_BUILD_DESC="ferrari-userdebug 5.1.1 LMY48B test-keys"
+    BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:6.0.1/MMB29M:userdebug/test-keys" \
+    PRIVATE_BUILD_DESC="ferrari-userdebug 6.0.1 MMB29M test-keys"
