@@ -71,6 +71,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Kernel
 BOARD_DTBTOOL_ARGS                 := -2
@@ -146,9 +147,6 @@ USE_OPENGL_RENDERER := true
 HAVE_ADRENO_SOURCE := false
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_NEW_ION_API := true
-
-# Smoosh all the things
-TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
 
 # CMHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
