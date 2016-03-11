@@ -31,6 +31,7 @@ on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
     symlink /data/tombstones /tombstones
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "noop"
 
 on init
     # Immersion
@@ -329,3 +330,6 @@ on property:persist.sys.aries.power_profile=middle
     start thermal-engine
     start perfd
     start power_engine
+
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"  
