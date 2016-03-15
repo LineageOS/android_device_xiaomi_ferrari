@@ -149,6 +149,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # LOGD
 TARGET_USES_LOGD := false
 
+# Keymaster
+TARGET_PROVIDES_KEYMASTER := true
+
 # Malloc
 MALLOC_IMPL := dlmalloc
 
