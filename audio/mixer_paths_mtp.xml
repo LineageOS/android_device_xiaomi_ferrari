@@ -643,6 +643,8 @@
 
     <path name="voice-speaker-dmic-ef">
         <path name="dmic-endfire" />
+        <ctl name="ADC1 Volume" value="8" />
+        <ctl name="ADC2 Volume" value="8" />
     </path>
 
     <path name="voice-rec-dmic-ef">
