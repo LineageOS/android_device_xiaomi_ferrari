@@ -62,6 +62,15 @@ TARGET_CPU_CORTEX_A53 := true
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user userdebug),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # Kernel
 BOARD_DTBTOOL_ARGS                 := -2
 BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
@@ -131,6 +140,9 @@ USE_OPENGL_RENDERER := true
 HAVE_ADRENO_SOURCE := false
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_NEW_ION_API := true
+
+# Smoosh all the things
+TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
 
 # CMHW
 BOARD_HARDWARE_CLASS := device/xiaomi/ferrari/cmhw
