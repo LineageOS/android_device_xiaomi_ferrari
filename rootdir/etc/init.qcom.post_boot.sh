@@ -475,7 +475,7 @@ case "$target" in
         fi
 
         # HMP scheduler settings for 8916, 8936, 8939, 8929
-        echo 3 > /proc/sys/kernel/sched_window_stats_policy
+        echo 2 > /proc/sys/kernel/sched_window_stats_policy
 
         # Apply governor settings for 8916
         case "$soc_id" in
@@ -596,7 +596,8 @@ case "$target" in
                 echo "1 960000:85 1113600:90 1344000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
                 echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
                 echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor
-                echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor
+                echo 800000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
                 # enable governor for power cluster
                 echo 1 > /sys/devices/system/cpu/cpu4/online
@@ -606,10 +607,10 @@ case "$target" in
                 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
                 echo 998400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-                echo "1 800000:90" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
-                echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
-                echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
-                echo 800000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+                echo "85 800000:90" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+                echo 50000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
+                echo 50000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
+                echo 499200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
                 # enable thermal core_control now
 		echo 1 > /sys/module/msm_thermal/core_control/enabled
