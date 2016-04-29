@@ -70,10 +70,10 @@ start_charger_monitor()
 {
 	if ls /sys/module/qpnp_charger/parameters/charger_monitor; then
 		chown -h root.system /sys/module/qpnp_charger/parameters/*
-		chown -h root.system /sys/class/power_supply/battery/input_current_max
-		chown -h root.system /sys/class/power_supply/battery/input_current_trim
-		chown -h root.system /sys/class/power_supply/battery/input_current_settled
-		chown -h root.system /sys/class/power_supply/battery/voltage_min
+		chown root.system /sys/class/power_supply/battery/input_current_max
+		chown root.system /sys/class/power_supply/battery/input_current_trim
+		chown root.system /sys/class/power_supply/battery/input_current_settled
+		chown root.system /sys/class/power_supply/battery/voltage_min
 		chmod 0664 /sys/class/power_supply/battery/input_current_max
 		chmod 0664 /sys/class/power_supply/battery/input_current_trim
 		chmod 0664 /sys/class/power_supply/battery/input_current_settled
