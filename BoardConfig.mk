@@ -74,7 +74,7 @@ endif
 # Kernel
 BOARD_DTBTOOL_ARGS                 := -2
 BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
-BOARD_KERNEL_CMDLINE               := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE               := console=none androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
 BOARD_KERNEL_SEPARATED_DT          := true
 BOARD_KERNEL_BASE                  := 0x80000000
 BOARD_KERNEL_PAGESIZE              := 2048
@@ -97,7 +97,6 @@ endif
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
-AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
 USE_CUSTOM_AUDIO_POLICY := 1
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
@@ -130,7 +129,7 @@ TARGET_SWV8_DISK_ENCRYPTION := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_GRALLOC_USES_ASHMEM := false
+TARGET_USE_COMPAT_GRALLOC_PERFORM := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_C2D_COMPOSITION := true
@@ -145,11 +144,8 @@ TARGET_USES_NEW_ION_API := true
 TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
 
 # CMHW
-BOARD_HARDWARE_CLASS := device/xiaomi/ferrari/cmhw
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-004a/wakeup_mode"
-
-# Fonts
-EXTENDED_FONT_FOOTPRINT := true
 
 # GPS
 TARGET_NO_RPC := true
@@ -186,10 +182,8 @@ TARGET_POWERHAL_VARIANT := qcom
 # Recovery
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/root/fstab.qcom
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
-BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP-Specific
 TW_THEME := portrait_hdpi
@@ -203,7 +197,6 @@ TW_TARGET_USES_QCOM_BSP := true
 TW_NEW_ION_HEAP := true
 
 # RIL
-PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 ADD_RADIO_FILES := true
 
