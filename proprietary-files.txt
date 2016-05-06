@@ -534,9 +534,9 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 
 # Sensors
-#bin/sensor_select.sh
-lib/hw/sensors.lsm6db0.so
-lib64/hw/sensors.lsm6db0.so
+bin/sensor_select.sh
+vendor/lib/hw/libsensors.lsm6db0.so
+vendor/lib64/hw/libsensors.lsm6db0.so
 
 # Time services
 -app/TimeService/TimeService.apk

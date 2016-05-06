@@ -249,6 +249,14 @@ PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg \
     wcnss_service
 
+# Sensor & activity_recognition HAL
+PRODUCT_PACKAGES += \
+    sensors.msm8916
+
+# Multi HAL configuration file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/ferrari/hals.conf:system/etc/sensors/hals.conf
+
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
