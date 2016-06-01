@@ -47,8 +47,8 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     .get_camera_info = qcamera::QCamera2Factory::get_camera_info,
     .set_callbacks = NULL,
     .get_vendor_tag_ops = NULL,
-    .open_legacy: NULL,
-    .set_torch_mode: NULL,
-    .init: NULL,
+    .open_legacy = NULL,
+    .set_torch_mode = NULL,
+    .init = NULL,
     .reserved = {0}
 };
