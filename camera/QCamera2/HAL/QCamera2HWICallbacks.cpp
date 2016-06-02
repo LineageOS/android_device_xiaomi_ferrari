@@ -1527,7 +1527,7 @@ void QCamera2HardwareInterface::dumpJpegToFile(const void *data,
                 snprintf(buf, sizeof(buf),
                          "/data/misc/camera/%d_%d.jpg", mDumpFrmCnt, index);
                 if (true == m_bIntEvtPending) {
-                    strncpy(m_BackendFileName, buf, sizeof(buf));
+                    strlcpy(m_BackendFileName, buf, sizeof(this->m_BackendFileName));
                     mBackendFileSize = size;
                 }
 
@@ -1535,7 +1535,7 @@ void QCamera2HardwareInterface::dumpJpegToFile(const void *data,
                 if (file_fd >= 0) {
                     ssize_t written_len = write(file_fd, data, size);
                     fchmod(file_fd, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-                    CDBG_HIGH("%s: written number of bytes %d\n", __func__, written_len);
+                    CDBG_HIGH("%s: written number of bytes %zd\n", __func__, written_len);
                     close(file_fd);
                 } else {
                     ALOGE("%s: fail t open file for image dumping", __func__);
@@ -1758,7 +1758,7 @@ void QCamera2HardwareInterface::dumpFrameToFile(QCameraStream *stream,
                             }
                         }
 
-                        CDBG_HIGH("%s: written number of bytes %d\n", __func__, written_len);
+                        CDBG_HIGH("%s: written number of bytes %zd\n", __func__, written_len);
                         close(file_fd);
                     } else {
                         ALOGE("%s: fail t open file for image dumping", __func__);
