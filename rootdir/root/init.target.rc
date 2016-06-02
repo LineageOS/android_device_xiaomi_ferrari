@@ -67,6 +67,15 @@ on post-fs-data
     chown system system /dev/sysmatdrv
     chmod 0660 /dev/sysmatdrv
 
+on enable-low-power
+    # Disable thermal core_control and cluster plug to update interactive gov settings
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/module/cluster_plug/parameters/active 0
+
+   # Enable thermal core_control and cluster plug now
+    write /sys/module/msm_thermal/core_control/enabled 1
+    write /sys/module/cluster_plug/parameters/active 1
+
 on post-fs
     swapon_all /fstab.qcom
     setprop ro.config.zram true

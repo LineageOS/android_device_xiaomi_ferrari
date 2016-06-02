@@ -167,6 +167,9 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
+    # Allow the power HAL to control cluster plug
+    chown system system /sys/module/cluster_plug/parameters/low_power_mode
+
     # Avoid releasing data call when Null bearer is reported to AP accidentally.
     setprop persist.radio.snapshot_enabled 1
     setprop persist.radio.snapshot_timer 10
