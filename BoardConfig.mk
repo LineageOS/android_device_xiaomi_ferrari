@@ -74,27 +74,19 @@ endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Kernel
-BOARD_DTBTOOL_ARGS                 := -2
-BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
+BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET
 BOARD_KERNEL_CMDLINE               := console=none androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
-BOARD_KERNEL_SEPARATED_DT          := true
 BOARD_KERNEL_BASE                  := 0x80000000
+BOARD_KERNEL_IMAGE_NAME            := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE              := 2048
 BOARD_KERNEL_TAGS_OFFSET           := 0x01E00000
 BOARD_RAMDISK_OFFSET               := 0x02000000
 TARGET_KERNEL_SOURCE               := kernel/xiaomi/ferrari
-ifneq ($(FERRARI_32_BIT),true)
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := ferrari_debug_defconfig
+TARGET_KERNEL_APPEND_DTB           := true
+TARGET_KERNEL_ARCH                 := arm64
+TARGET_KERNEL_HEADER_ARCH          := arm64
+TARGET_KERNEL_CONFIG               := ferrari_debug_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_USES_UNCOMPRESSED_KERNEL := true
-else
-TARGET_KERNEL_CONFIG := cyanogenmod_ferrari_defconfig
-endif
-ifneq ($(TARGET_BUILD_VARIANT),user)
-TARGET_KERNEL_ADDITIONAL_CONFIG := cyanogenmod_debug_config
-endif
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
