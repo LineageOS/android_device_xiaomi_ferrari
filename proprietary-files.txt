@@ -425,6 +425,7 @@ vendor/lib/libOmxQcelp13Dec.so
 bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib64/libqti-perfd-client.so
+vendor/lib/libqti-perfd-client.so
 
 # Qualcomm framework - from kipper
 bin/irsc_util|245ce5dc3473131d9a6f535bdfe06df692f77186
