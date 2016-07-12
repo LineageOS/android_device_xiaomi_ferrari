@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
     libstlport \
     libmm-qcamera
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # lights
 PRODUCT_PACKAGES += \
     lights.msm8916
