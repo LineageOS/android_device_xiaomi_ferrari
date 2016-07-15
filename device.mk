@@ -153,10 +153,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     memtrack.msm8916
 
-# doze
-PRODUCT_PACKAGES += \
-    FerrariDoze
-
 # Filesystem
 PRODUCT_PACKAGES += \
     e2fsck \
