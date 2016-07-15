@@ -410,7 +410,6 @@ on property:hw.fm.init=1
 
 on property:hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
-    setprop hw.fm.init 1
 
 service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
     class core
