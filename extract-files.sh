@@ -17,7 +17,6 @@
 
 set -e
 
-# Required!
 DEVICE=ferrari
 VENDOR=xiaomi
 
@@ -34,23 +33,25 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
+if [ $# -eq 0 ]; then
+  SRC=adb
+else
+  if [ $# -eq 1 ]; then
+    SRC=$1
+  else
+    echo "$0: bad number of arguments"
+    echo ""
+    echo "usage: $0 [PATH_TO_EXPANDED_ROM]"
+    echo ""
+    echo "If PATH_TO_EXPANDED_ROM is not specified, blobs will be extracted from"
+    echo "the device using adb pull."
+    exit 1
+  fi
+fi
+
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
-# Copyright headers and guards
-write_headers
+extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
-# The standard blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt
-
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-printf '%s\n' "endif" >> "$PRODUCTMK"
-printf '%s\n' "endif" >> "$ANDROIDMK"
-
-# We are done!
-write_footers
-
+"$MY_DIR"/setup-makefiles.sh
