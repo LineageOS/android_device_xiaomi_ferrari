@@ -25,10 +25,3 @@ PRODUCT_MODEL := MI 4i
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-# Build prop overrides
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE="ferrari" \
-    PRODUCT_NAME="ferrari" \
-    BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:6.0.1/MMB29M:userdebug/test-keys" \
-    PRIVATE_BUILD_DESC="ferrari-userdebug 6.0.1 MMB29M test-keys"
