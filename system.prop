@@ -1,7 +1,77 @@
-#
-# system.prop for ferrari
-#
+# ActivityManager optimizations
+ro.config.max_starting_bg=8
+ro.sys.fw.bservice_enable=true
+ro.sys.fw.use_trim_settings=true
 
+# Art
+ro.sys.fw.dex2oat_thread_count=4
+dalvik.vm.dex2oat-flags=--no-watch-dog
+
+# Audio
+audio.offload.disable=1
+audio.offload.pcm.enable=false
+audio.dolby.ds2.enabled=true
+persist.audio.FFSP.enable=true
+ro.qc.sdk.audio.ssr=false
+ro.qc.sdk.audio.fluencetype=fluence
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.audio.fluence.speaker=true
+audio.offload.buffer.size.kb=64
+audio.offload.min.duration.secs=30
+use.voice.path.for.pcm.voip=true
+audio.offload.gapless.enabled=true
+voice.playback.conc.disabled=false
+voice.record.conc.disabled=true
+voice.voip.conc.disabled=true
+persist.audio.dirac.speaker=true
+
+# Bluetooth
+bluetooth.hfp.client=1
+qcom.bt.dev_power_class=1
+ro.btconfig.if=smd
+ro.btconfig.dev=/dev/smd3
+ro.btconfig.vendor=qcom
+ro.btconfig.chip=WCN3680B
+net.bt.name=Android
+
+# Cne
+persist.cne.feature=1
+
+# Display
+assertdisplay.value=128
+ro.sf.lcd_density=480
+persist.hwc.mdpcomp.enable=true
+debug.mdpcomp.logs=0
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+debug.mdpcomp.idletime=600
+debug.enable.sglscale=1
+drm.service.enabled=true
+
+# GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+ro.qc.sdk.izat.premium_enabled=1
+ro.qc.sdk.izat.service_mask=0x5
+ro.pip.gated=0
+
+# Media
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+media.msm8939hw=0
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+ro.sys.oosenhance.enable=true
+ro.sys.oosenhance.timer=20000
+
+# Network
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
@@ -18,45 +88,19 @@ ril.subscription.types=NV,RUIM
 ro.telephony.ril.config=simactivation
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
 ro.telephony.default_network=9,1
+telephony.lteOnCdmaDevice=1
+persist.radio.multisim.config=dsds
 persist.sys.ssr.restart_level=ALL_ENABLE
+persist.radio.disable_flexmap=1
 persist.sys.ssr.enable_ramdumps=1
 DEVICE_PROVISIONED=1
 
-persist.hwc.mdpcomp.enable=true
-debug.mdpcomp.logs=0
-dev.pm.dyn_samplingrate=1
-persist.demo.hdmirotationlock=false
-debug.mdpcomp.idletime=600
-debug.enable.sglscale=1
-
-ro.sf.lcd_density=480
-
-#
-# system props for the cne module
-#
-persist.cne.feature=1
-
-#system props for the MM modules
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-media.msm8939hw=0
-mm.enable.smoothstreaming=true
-mmp.enable.3g2=true
-media.aac_51_output_enabled=true
-
-#codecs:DivxHD Divx FLAC QCP MP2TS 3G2 DTS AVI ASF AC3 AAC
-mm.enable.qcom_parser=3314291
-
-#
-# system props for the data modules
-#
+# Netmgrd
 ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+ro.data.large_tcp_window_size=true
 
-#system props for time-services
+# Time-Services
 persist.timed.enable=true
 
 #
@@ -65,111 +109,32 @@ persist.timed.enable=true
 # 196609 is decimal for 0x30001 to report major/minor versions as 3/1
 ro.opengles.version=196609
 
-# System property for cabl
+# Qc calib
 ro.qualcomm.cabl=0
 ro.qcom.ad=1
 ro.qcom.ad.sensortype=2
 ro.qcom.ad.calib.data=/system/etc/calib.cfg
 
-#
-# System props for telephony
-# System prop to turn on CdmaLTEPhone always
-telephony.lteOnCdmaDevice=1
-
-#
-# System props for bluetooh
-# System prop to turn on hfp client
-bluetooth.hfp.client=1
-
-#Simulate sdcard on /data/media
-#
+# Simulate sdcard on /data/media
 persist.fuse_sdcard=true
 
-#
-#snapdragon value add features
-#
-ro.qc.sdk.audio.ssr=false
-##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=fluence
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-#Set for msm8916
-#Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=64
-#Minimum duration for offload playback in secs
-audio.offload.min.duration.secs=30
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
-
-# button jack mode & switch
-persist.sys.button_jack_profile=volume
-persist.sys.button_jack_switch=0
-
-#System property for FM transmitter
+# System property for FM transmitter
 ro.fm.transmitter=false
-#enable dsp gapless mode by default
-audio.offload.gapless.enabled=true
-#Audio voice concurrency related flags
-voice.playback.conc.disabled=false
-voice.record.conc.disabled=true
-voice.voip.conc.disabled=true
 
 #Set read only default composition for USB
 ro.sys.usb.default.config=diag,serial_smd,rmnet_bam,adb
 
-#property to enable user to access Google WFD settings
-persist.debug.wfd.enable=1
-#property to enable VDS WFD solution
-persist.hwc.enable_vds=1
-#property to enable narrow search range for video encoding
-vidc.enc.narrow.searchrange=1
-
-persist.radio.multisim.config=dsds
-
-#disable audio offload mode
-audio.offload.disable=1
-audio.offload.pcm.enable=false
-
-#property to enable DS2 dap
-audio.dolby.ds2.enabled=true
-
-#reverse engineering
-persist.audio.FFSP.enable=true
-
-# enable usb otg setting
-persist.sys.isUsbOtgEnabled=true
-
-# Enalbe modem fast dormancy function
+# Fast dormancy function
 persist.env.fastdorm.enabled=true
 persist.radio.data_no_toggle=1
 persist.fd.scroff.timer=3000
 persist.fd.scron.timer=10000
-
-# disable cross mapping
-persist.radio.disable_flexmap=1
 
 # enable xiaomi power ctrl
 persist.sys.power_ctrl=1
 
 #support LTE bands, should be same as NV6828
 persist.radio.lte_full_band=2061584302151
-
-# turn on short OOS enhancement
-ro.sys.oosenhance.enable=true
-ro.sys.oosenhance.timer=20000
-
-# enable dirac sound for speaker
-persist.audio.dirac.speaker=true
-
-# ActivityManager optimizations
-ro.config.max_starting_bg=8
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.use_trim_settings=true
-
-# Art
-ro.sys.fw.dex2oat_thread_count=4
-dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # perf
 ro.min_freq_0=960000
@@ -181,23 +146,11 @@ ro.vendor.extension_library=libqti-perfd-client.so
 #
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
 persist.sys.klo=on
-drm.service.enabled=true
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
 ro.vendor.extension_library=libqti-perfd-client.so
 persist.radio.apm_sim_not_pwdn=0
-qcom.bt.dev_power_class=1
-ro.btconfig.if=smd
-ro.btconfig.dev=/dev/smd3
-ro.btconfig.vendor=qcom
-ro.btconfig.chip=WCN3680B
 persist.sys.ltm_enable=true
-assertdisplay.value=128
-net.bt.name=Android
-persist.gps.qc_nlp_in_use=1
-persist.loc.nlp_name=com.qualcomm.location
-ro.gps.agps_provider=1
-ro.pip.gated=0
 persist.data.qmi.adb_logmask=0
 ro.product.mod_device=ferrari_global
 ro.com.android.mobiledata=false
@@ -207,3 +160,8 @@ persist.power.useautobrightadj=true
 
 # Disable QMI logspam
 persist.data.qmi.adb_logmask=0
+
+# Wifi
+wifi.interface=wlan0
+wlan.driver.ath=0
+
