@@ -53,9 +53,6 @@ drm.service.enabled=true
 persist.gps.qc_nlp_in_use=1
 persist.loc.nlp_name=com.qualcomm.location
 ro.gps.agps_provider=1
-ro.qc.sdk.izat.premium_enabled=1
-ro.qc.sdk.izat.service_mask=0x5
-ro.pip.gated=0
 
 # Media
 media.stagefright.enable-player=true
@@ -72,28 +69,15 @@ ro.sys.oosenhance.enable=true
 ro.sys.oosenhance.timer=20000
 
 # Network
-rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
-rild.libargs=-d /dev/smd0
-persist.rild.nitz_plmn=
-persist.rild.nitz_long_ons_0=
-persist.rild.nitz_long_ons_1=
-persist.rild.nitz_long_ons_2=
-persist.rild.nitz_long_ons_3=
-persist.rild.nitz_short_ons_0=
-persist.rild.nitz_short_ons_1=
-persist.rild.nitz_short_ons_2=
-persist.rild.nitz_short_ons_3=
-persist.radio.rat_on=combine
-ril.subscription.types=NV,RUIM
-ro.telephony.ril.config=simactivation
-ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
-ro.telephony.default_network=9,1
-telephony.lteOnCdmaDevice=1
-persist.radio.multisim.config=dsds
-persist.sys.ssr.restart_level=ALL_ENABLE
-persist.radio.disable_flexmap=1
-persist.sys.ssr.enable_ramdumps=1
 DEVICE_PROVISIONED=1
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.dont_use_dsd=true
+persist.radio.multisim.config=dsds
+rild.libargs=-d /dev/smd0
+rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+ril.subscription.types=NV,RUIM
+ro.telephony.call_ring.multiple=false
+ro.telephony.default_network=9,9
 
 # Netmgrd
 ro.use_data_netmgrd=true
@@ -146,14 +130,10 @@ ro.vendor.extension_library=libqti-perfd-client.so
 #
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
 persist.sys.klo=on
-ro.ril.hsxpa=1
-ro.ril.gprsclass=10
 ro.vendor.extension_library=libqti-perfd-client.so
-persist.radio.apm_sim_not_pwdn=0
 persist.sys.ltm_enable=true
 persist.data.qmi.adb_logmask=0
 ro.product.mod_device=ferrari_global
-ro.com.android.mobiledata=false
 ro.product.manufacturer=Xiaomi
 keyguard.no_require_sim=true
 persist.power.useautobrightadj=true
