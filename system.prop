@@ -8,17 +8,19 @@ ro.sys.fw.dex2oat_thread_count=4
 dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # Audio
-audio.offload.disable=1
-audio.offload.pcm.enable=false
-audio.dolby.ds2.enabled=true
-persist.audio.FFSP.enable=true
-ro.qc.sdk.audio.ssr=false
-ro.qc.sdk.audio.fluencetype=fluence
+af.fast_track_multiplier=1
+audio_hal.period_size=192
+audio.deep_buffer.media=true
+persist.audio.fluence.speaker=true
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
+ro.config.vc_call_vol_steps=8
+ro.qc.sdk.audio.fluencetype=fluence
+ro.qc.sdk.audio.ssr=false
+tunnel.audio.encode=false
 use.voice.path.for.pcm.voip=true
-voice.playback.conc.disabled=false
+vidc.enc.narrow.searchrange=1
+voice.playback.conc.disabled=true
 voice.record.conc.disabled=true
 voice.voip.conc.disabled=true
 persist.audio.dirac.speaker=true
