@@ -17,14 +17,21 @@ ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
-audio.offload.buffer.size.kb=64
-audio.offload.min.duration.secs=30
 use.voice.path.for.pcm.voip=true
-audio.offload.gapless.enabled=true
 voice.playback.conc.disabled=false
 voice.record.conc.disabled=true
 voice.voip.conc.disabled=true
 persist.audio.dirac.speaker=true
+
+# Audio offload
+audio.offload.buffer.size.kb=64
+audio.offload.gapless.enabled=true
+audio.offload.min.duration.secs=30
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+audio.offload.video=true
+av.offload.enable=true
+av.streaming.offload.enable=true
 
 # Bluetooth
 bluetooth.hfp.client=1
