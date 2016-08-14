@@ -5,7 +5,10 @@ vendor/lib/libadsprpc.so
 vendor/lib/libfastcvopt.so
 
 # Audio
+lib/libDiracAPI_SHARED.so
+lib/soundfx/libdirac.so
 etc/firmware/seltech_mono.cnt
+vendor/etc/diracmobile.config
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so

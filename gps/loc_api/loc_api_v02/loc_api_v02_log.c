@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -29,7 +29,7 @@
 #include <loc_api_v02_log.h>
 #include <location_service_v02.h>
 
-static loc_name_val_s_type loc_v02_event_name[] =
+static const loc_name_val_s_type loc_v02_event_name[] =
 {
     NAME_VAL(QMI_LOC_INFORM_CLIENT_REVISION_REQ_V02),
     NAME_VAL(QMI_LOC_INFORM_CLIENT_REVISION_RESP_V02),
@@ -281,16 +281,73 @@ static loc_name_val_s_type loc_v02_event_name[] =
     NAME_VAL(QMI_LOC_SET_XTRA_VERSION_CHECK_REQ_V02),
     NAME_VAL(QMI_LOC_SET_XTRA_VERSION_CHECK_RESP_V02),
     NAME_VAL(QMI_LOC_SET_XTRA_VERSION_CHECK_IND_V02),
-    NAME_VAL(QMI_LOC_EVENT_GEOFENCE_PROXIMITY_NOTIFICATION_IND_V02)
+    NAME_VAL(QMI_LOC_EVENT_GEOFENCE_PROXIMITY_NOTIFICATION_IND_V02),
+    NAME_VAL(QMI_LOC_INJECT_GTP_CLIENT_DOWNLOADED_DATA_REQ_V02),
+    NAME_VAL(QMI_LOC_INJECT_GTP_CLIENT_DOWNLOADED_DATA_RESP_V02),
+    NAME_VAL(QMI_LOC_INJECT_GTP_CLIENT_DOWNLOADED_DATA_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_BEGIN_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_BEGIN_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_BEGIN_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_END_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_END_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_UPLOAD_END_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GDT_UPLOAD_BEGIN_STATUS_REQ_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GDT_UPLOAD_END_REQ_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GNSS_MEASUREMENT_REPORT_IND_V02),
+    NAME_VAL(QMI_LOC_SET_GNSS_CONSTELL_REPORT_CONFIG_V02),
+    NAME_VAL(QMI_LOC_SET_GNSS_CONSTELL_REPORT_CONFIG_RESP_V02),
+    NAME_VAL(QMI_LOC_SET_GNSS_CONSTELL_REPORT_CONFIG_IND_V02),
+    NAME_VAL(QMI_LOC_START_DBT_REQ_V02),
+    NAME_VAL(QMI_LOC_START_DBT_RESP_V02),
+    NAME_VAL(QMI_LOC_START_DBT_IND_V02),
+    NAME_VAL(QMI_LOC_STOP_DBT_REQ_V02),
+    NAME_VAL(QMI_LOC_STOP_DBT_RESP_V02),
+    NAME_VAL(QMI_LOC_STOP_DBT_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_DBT_POSITION_REPORT_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_DBT_SESSION_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_SECURE_GET_AVAILABLE_POSITION_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GEOFENCE_BATCHED_DWELL_NOTIFICATION_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GET_TIME_ZONE_INFO_IND_V02),
+    NAME_VAL(QMI_LOC_INJECT_TIME_ZONE_INFO_REQ_V02),
+    NAME_VAL(QMI_LOC_INJECT_TIME_ZONE_INFO_RESP_V02),
+    NAME_VAL(QMI_LOC_INJECT_TIME_ZONE_INFO_IND_V02),
+    NAME_VAL(QMI_LOC_INJECT_APCACHE_DATA_REQ_V02),
+    NAME_VAL(QMI_LOC_INJECT_APCACHE_DATA_RESP_V02),
+    NAME_VAL(QMI_LOC_INJECT_APCACHE_DATA_IND_V02),
+    NAME_VAL(QMI_LOC_INJECT_APDONOTCACHE_DATA_REQ_V02),
+    NAME_VAL(QMI_LOC_INJECT_APDONOTCACHE_DATA_RESP_V02),
+    NAME_VAL(QMI_LOC_INJECT_APDONOTCACHE_DATA_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_BATCHING_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_QUERY_AON_CONFIG_REQ_V02),
+    NAME_VAL(QMI_LOC_QUERY_AON_CONFIG_RESP_V02),
+    NAME_VAL(QMI_LOC_QUERY_AON_CONFIG_IND_V02),
+    NAME_VAL(QMI_LOC_GTP_AP_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GTP_AP_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GTP_AP_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_BEGIN_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_BEGIN_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_BEGIN_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_READY_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_READY_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_READY_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_RECEIVE_DONE_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_RECEIVE_DONE_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_RECEIVE_DONE_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_END_STATUS_REQ_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_END_STATUS_RESP_V02),
+    NAME_VAL(QMI_LOC_GDT_DOWNLOAD_END_STATUS_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GDT_DOWNLOAD_BEGIN_REQ_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GDT_RECEIVE_DONE_IND_V02),
+    NAME_VAL(QMI_LOC_EVENT_GDT_DOWNLOAD_END_REQ_IND_V02)
 };
-static int loc_v02_event_num = sizeof(loc_v02_event_name) / sizeof(loc_name_val_s_type);
+static const int loc_v02_event_num = sizeof(loc_v02_event_name) / sizeof(loc_name_val_s_type);
 
 const char* loc_get_v02_event_name(uint32_t event)
 {
     return loc_get_name_from_val(loc_v02_event_name, loc_v02_event_num, (long) event);
 }
 
-static loc_name_val_s_type loc_v02_client_status_name[] =
+static const loc_name_val_s_type loc_v02_client_status_name[] =
 {
     NAME_VAL(eLOC_CLIENT_SUCCESS),
     NAME_VAL(eLOC_CLIENT_FAILURE_GENERAL),
@@ -307,7 +364,7 @@ static loc_name_val_s_type loc_v02_client_status_name[] =
     NAME_VAL(eLOC_CLIENT_FAILURE_NOT_INITIALIZED),
     NAME_VAL(eLOC_CLIENT_FAILURE_NOT_ENOUGH_MEMORY),
 };
-static int loc_v02_client_status_num = sizeof(loc_v02_client_status_name) / sizeof(loc_name_val_s_type);
+static const int loc_v02_client_status_num = sizeof(loc_v02_client_status_name) / sizeof(loc_name_val_s_type);
 
 const char* loc_get_v02_client_status_name(locClientStatusEnumType status)
 {
@@ -315,7 +372,7 @@ const char* loc_get_v02_client_status_name(locClientStatusEnumType status)
 }
 
 
-static loc_name_val_s_type loc_v02_qmi_status_name[] =
+static const loc_name_val_s_type loc_v02_qmi_status_name[] =
 {
     NAME_VAL(eQMI_LOC_SUCCESS_V02),
     NAME_VAL(eQMI_LOC_GENERAL_FAILURE_V02),
@@ -327,7 +384,7 @@ static loc_name_val_s_type loc_v02_qmi_status_name[] =
     NAME_VAL(eQMI_LOC_CONFIG_NOT_SUPPORTED_V02),
     NAME_VAL(eQMI_LOC_INSUFFICIENT_MEMORY_V02),
 };
-static int loc_v02_qmi_status_num = sizeof(loc_v02_qmi_status_name) / sizeof(loc_name_val_s_type);
+static const int loc_v02_qmi_status_num = sizeof(loc_v02_qmi_status_name) / sizeof(loc_name_val_s_type);
 
 const char* loc_get_v02_qmi_status_name(qmiLocStatusEnumT_v02 status)
 {
