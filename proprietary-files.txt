@@ -372,6 +372,42 @@ etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
+# CNE/DPM
+bin/cnd
+bin/dpmd
+etc/cne/andsfCne.xml
+etc/cne/SwimConfig.xml
+etc/dpm/dpm.conf
+etc/dpm/nsrm/NsrmConfiguration.xml
+etc/permissions/cneapiclient.xml
+etc/permissions/com.qti.dpmframework.xml
+etc/permissions/com.quicinc.cne.xml
+etc/permissions/ConnectivityExt.xml
+etc/permissions/dpmapi.xml
+framework/cneapiclient.jar
+framework/com.qti.dpmframework.jar
+framework/com.quicinc.cne.jar
+framework/ConnectivityExt.jar
+framework/dpmapi.jar
+-priv-app/CNEService/CNEService.apk
+-priv-app/dpmserviceapp/dpmserviceapp.apk
+vendor/lib64/libcne.so
+vendor/lib64/libcneapiclient.so
+vendor/lib64/libcneconn.so
+vendor/lib64/libcneqmiutils.so
+vendor/lib64/libdpmframework.so
+vendor/lib64/libdpmnsrm.so
+vendor/lib64/libNimsWrap.so
+vendor/lib64/libvendorconn.so
+vendor/lib/libcne.so
+vendor/lib/libcneapiclient.so
+vendor/lib/libcneconn.so
+vendor/lib/libcneqmiutils.so
+vendor/lib/libdpmframework.so
+vendor/lib/libdpmnsrm.so
+vendor/lib/libNimsWrap.so
+vendor/lib/libvendorconn.so
+
 # DRM - from kipper
 bin/qseecomd
 lib/libdrmdecrypt.so
