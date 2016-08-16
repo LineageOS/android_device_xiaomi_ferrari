@@ -279,7 +279,3 @@ PRODUCT_PACKAGES += \
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
-
-ifeq ($(BOARD_USES_QCNE),true)
-
-endif
