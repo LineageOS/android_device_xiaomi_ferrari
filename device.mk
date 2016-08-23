@@ -38,26 +38,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    chargeonlymode \
     init.qcom.rc \
     init.target.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc \
     init.class_main.sh \
-    init.mdm.sh \
-    init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.factory.sh \
-    init.qcom.sh \
-    init.qcom.syspart_fixup.sh \
-    init.qcom.usb.sh
+    init.qcom.power.rc \
+    init.qcom.sh
 
 # QCOM Config Script
 PRODUCT_PACKAGES += \
     hsic.control.bt.sh \
     init.qcom.bt.sh \
     init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
     init.qcom.wifi.sh \
     qca6234-service.sh
 
@@ -262,14 +257,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8939.conf:system/etc/thermal-engine-8939.conf \
     $(LOCAL_PATH)/configs/thermal-engine-8939.IN.conf:system/etc/thermal-engine-8939.IN.conf
-
-# Proprietery Firmware
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/android_model_facea.dat:system/etc/android_model_facea.dat \
-    $(LOCAL_PATH)/rootdir/etc/android_model_faceg.dat:system/etc/android_model_faceg.dat \
-    $(LOCAL_PATH)/rootdir/etc/xtwifi.conf:system/etc/xtwifi.conf \
-    $(LOCAL_PATH)/rootdir/etc/calib.cfg:system/etc/calib.cfg \
-    $(LOCAL_PATH)/rootdir/etc/modem/Diag.cfg:system/etc/modem/Diag.cfg
 
 # ANT+
 PRODUCT_PACKAGES += \
