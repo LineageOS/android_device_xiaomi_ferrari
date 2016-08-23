@@ -91,7 +91,6 @@ ro.telephony.default_network=9,9
 # Netmgrd
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
-ro.data.large_tcp_window_size=true
 
 # Time-Services
 persist.timed.enable=true
@@ -111,41 +110,21 @@ ro.qcom.ad.calib.data=/system/etc/calib.cfg
 # Simulate sdcard on /data/media
 persist.fuse_sdcard=true
 
-# System property for FM transmitter
-ro.fm.transmitter=false
-
 #Set read only default composition for USB
-ro.sys.usb.default.config=diag,serial_smd,rmnet_bam,adb
-
-# Fast dormancy function
-persist.env.fastdorm.enabled=true
-persist.radio.data_no_toggle=1
-persist.fd.scroff.timer=3000
-persist.fd.scron.timer=10000
-
-# enable xiaomi power ctrl
-persist.sys.power_ctrl=1
+ro.sys.usb.default.config=mtp,adb
 
 #support LTE bands, should be same as NV6828
 persist.radio.lte_full_band=2061584302151
 
 # perf
-ro.min_freq_0=960000
-ro.min_freq_4=800000
 ro.vendor.extension_library=libqti-perfd-client.so
 
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
-persist.sys.klo=on
-ro.vendor.extension_library=libqti-perfd-client.so
-persist.sys.ltm_enable=true
-persist.data.qmi.adb_logmask=0
 ro.product.mod_device=ferrari_global
 ro.product.manufacturer=Xiaomi
-keyguard.no_require_sim=true
-persist.power.useautobrightadj=true
 
 # Disable QMI logspam
 persist.data.qmi.adb_logmask=0
