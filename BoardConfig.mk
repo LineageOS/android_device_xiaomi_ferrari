@@ -31,7 +31,6 @@ TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 
 # Architecture
-ifneq ($(FERRARI_32_BIT),true)
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -46,16 +45,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
-else
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a53
-endif
 TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno405
-TARGET_BOARD_SUFFIX := _32
 
 # CPU
 TARGET_CPU_CORTEX_A53 := true
@@ -74,27 +65,20 @@ endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Kernel
-BOARD_DTBTOOL_ARGS                 := -2
-BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
-BOARD_KERNEL_CMDLINE               := console=none androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
-BOARD_KERNEL_SEPARATED_DT          := true
-BOARD_KERNEL_BASE                  := 0x80000000
-BOARD_KERNEL_PAGESIZE              := 2048
-BOARD_KERNEL_TAGS_OFFSET           := 0x01E00000
-BOARD_RAMDISK_OFFSET               := 0x02000000
-TARGET_KERNEL_SOURCE               := kernel/xiaomi/ferrari
-ifneq ($(FERRARI_32_BIT),true)
+BOARD_DTBTOOL_ARGS := -2
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
+BOARD_RAMDISK_OFFSET := 0x02000000
+TARGET_KERNEL_SOURCE := kernel/xiaomi/ferrari
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := ferrari_debug_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_UNCOMPRESSED_KERNEL := true
-else
-TARGET_KERNEL_CONFIG := cyanogenmod_ferrari_defconfig
-endif
-ifneq ($(TARGET_BUILD_VARIANT),user)
-TARGET_KERNEL_ADDITIONAL_CONFIG := cyanogenmod_debug_config
-endif
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -105,7 +89,7 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # FM Radio
-TARGET_FM_LEGACY_PATCHLOADER := true
+TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
@@ -117,7 +101,6 @@ QCOM_BT_USE_BTNV := true
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 
 # Clang
 USE_CLANG_PLATFORM_BUILD := true
@@ -240,4 +223,3 @@ TARGET_USES_QCOM_WCNSS_QMI       := true
 
 # inherit from the proprietary version
 -include vendor/xiaomi/ferrari/BoardConfigVendor.mk
-
