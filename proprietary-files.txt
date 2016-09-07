@@ -374,42 +374,6 @@ etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
-# CNE/DPM - from kipper
-bin/cnd|f79cee283d02238919ed4d78d0d67b08d09152ec
-bin/dpmd|19984bb67f0a5392ab2fc92e0568c1d63fdd11f9
-etc/cne/andsfCne.xml|6cc3c91c180c648d431ea96d9b1e597c06b61505
-etc/cne/SwimConfig.xml|68dedcca1c2ac18cf81fdee1854de16a3a60dd02
-etc/dpm/dpm.conf|f7ab7d1d06ca387eda30275d9e06cba297e2eea2
-etc/dpm/nsrm/NsrmConfiguration.xml|f6f376ffddbb8a95ca15587e950c71329d67eb14
-etc/permissions/cneapiclient.xml|15831adf0e80243042b90c734eea0a68eb8ae9c9
-etc/permissions/com.qti.dpmframework.xml|1038acbf7d36553c4bbb2203fc6bedb6ad2af2c9
-etc/permissions/com.quicinc.cne.xml|e99e631d8b06ba4680529e9e4004d8d05baf6904
-etc/permissions/ConnectivityExt.xml|1f043c7a3fbd5c87a5dfc323d627b0b24f081ab3
-etc/permissions/dpmapi.xml|ded29f9befaef20a7ccee0c75427fda1d1d04890
-framework/cneapiclient.jar|af8de3b811582c57b583223cbc022486a6a56505
-framework/com.qti.dpmframework.jar|e1e2d9109c96b93e9e84131a265eb948ff0a304c
-framework/com.quicinc.cne.jar|9e457051aa167db595a19da1010d6d2f847a4d53
-framework/ConnectivityExt.jar|63d3bf9599e570b952329875d0a806e8a0781691
-framework/dpmapi.jar|99c5bcace6283f37d08dcd815a9c4110b12891f2
--priv-app/CNEService/CNEService.apk|d6ecc42a9caa0999b2b1baef46691b06be46f55b
--priv-app/dpmserviceapp/dpmserviceapp.apk|4f739158cd820bc23a2b31a9ec01164e5def0223
-vendor/lib64/libcne.so|15c7cc39dee47baa3cdc969c311e2adf15b21d2c
-vendor/lib64/libcneapiclient.so|38112f63d242165de6908ed21a07dfde87c1807c
-vendor/lib64/libcneconn.so|41814772977ac9fa6dfbdf2ee8020ed3feb86c30
-vendor/lib64/libcneqmiutils.so|4587bd551ea5ec64f0fe55ff2fb592fb217e5451
-vendor/lib64/libdpmframework.so|43781b55fca83dfaf78d489c6f5f173abd1314ad
-vendor/lib64/libdpmnsrm.so|b0d3865b62cd79652d40aa64ace02ffb740c7fb1
-vendor/lib64/libNimsWrap.so|bc0c25953edf7befcfff2aa8d4bb9ca205a2c223
-vendor/lib64/libvendorconn.so|03b5c00f56e92aae678144da69f234bc5b51f72e
-vendor/lib/libcne.so|524790df606ef61967604dee0f4195a5ade8a4c6
-vendor/lib/libcneapiclient.so|1cd1a5a4db60d1b2f99a124663eba3b10cbb5c89
-vendor/lib/libcneconn.so|60a22816b7706f3691183b3976f453aaca3a471e
-vendor/lib/libcneqmiutils.so|1cef5bd971d1ba89c0a04c8bb513a4068ee4965a
-vendor/lib/libdpmframework.so|2a338519bb1e755b44ed36a6eb41613228f19289
-vendor/lib/libdpmnsrm.so|d3fd9cfb037da50a7d8626041099a9663bd6f6a1
-vendor/lib/libNimsWrap.so|65177374b62614324933b851ea7fc178160a0d7f
-vendor/lib/libvendorconn.so|7023bc3a9e63ae466c8cd3c925223fe1138ca812
-
 # DRM - from kipper
 bin/qseecomd|2423ad273f52311dbd2f3bb7e810734744e2e6ff
 lib/libdrmdecrypt.so|0cc6e6da79782fc4eeabc7c90d51dc5da7c12e7a
@@ -425,40 +389,20 @@ vendor/lib/drm/libdrmwvmplugin.so|7bab3e7c173ecf531e5ce5d94dce46165aa45e70
 vendor/lib/mediadrm/libwvdrmengine.so|c712945f6177a489b098d417d56750487ce3428d
 
 # GPS - from kipper
-bin/loc_launcher|4818abba3005fc63ab512bc1c076cfadc17ae67d
-etc/permissions/com.qti.location.sdk.xml|cb68a566bd77dcc75bb7547199d528289fac01cb
-etc/permissions/com.qualcomm.location.xml|878999ca1861e71cdbda75378164d6113296a428
-framework/com.qti.location.sdk.jar|595d8ba0d6e091ee1481b9d63587b80bf88d4e30
--lib64/libloc_api_v02.so|e32918e3263796819916ecfe2e5d4735758b05a8
--lib64/libloc_ds_api.so|6d2cc2dd6f1435955648fe0626ce79a7b6411416
--lib/libloc_api_v02.so|42aab2457c678f59c97498a161a42915b3365e12
--lib/libloc_ds_api.so|3a6c1b1393bda6710d64b87a8a96ff561e5d33b1
--priv-app/com.qualcomm.location/com.qualcomm.location.apk|26160a18bb0b6079451bbd57b7820841589d4472
-vendor/bin/slim_daemon|1d7aec180e0081b9441e85984e5cce8aee5f06dc
-vendor/lib64/hw/flp.default.so|22300e06491cb1fdf9bbf8c816d3c789790d09b9
-vendor/lib64/libdataitems.so|7ad2559238b58907acde0b8d981a31ab72e0a131
-vendor/lib64/libflp.so|4bd0052875205a4b106169ddd8451e2e0151a7fe
-vendor/lib64/libgeofence.so|5be57ed7ddb8005a06a0779c3104cacaf52f607b
-vendor/lib64/libizat_core.so|2516fd1cbaa2e2ec9e374076c907ab3aed345ba5
-vendor/lib64/liblbs_core.so|b7e95b2a828362bc8ac9a92168e8a0412868faf7
-vendor/lib64/liblocationservice_glue.so|4275268bf87433c9f9deb09e9864157f5958ea70
-vendor/lib64/liblocationservice.so|59858888cfdbfceefe3157fa117eadd6d881fecd
-vendor/lib64/liblowi_client.so|ee005b7253856daec7b76b228f268f075314bf5e
-vendor/lib64/libulp2.so|ba3c272ef9ed1e8c5171d6d210c54a178e222214
-vendor/lib64/libxtadapter.so|3b3f68654174e96acdaaea59b3700b7745e5be0c
-vendor/lib64/libxtwifi_ulp_adaptor.so|cdbd47437759e22f6a13da96ea1f882dd27afb7a
-vendor/lib/hw/flp.default.so|6d0fbc257f55373274a970f7081c3504a0a5178f
-vendor/lib/libdataitems.so|1944b45aa5232855932772253b32a66b7db573bf
-vendor/lib/libflp.so|aec819da2d22967c4b2c49ca55b4f3f74c4af0f8
-vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
-vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
-vendor/lib/liblbs_core.so|e82e804baaff20c8c1e46e183a1bd923247ec83e
-vendor/lib/liblocationservice_glue.so|1d2530fa79688c1fba3eab76166549703bc56f28
-vendor/lib/liblocationservice.so|ae046a1d4a7ddb70d71df1fff48532de5151bc6f
-vendor/lib/liblowi_client.so|04a4263655eafe1c6885d857d840f94eef00eab0
-vendor/lib/libulp2.so|17d0e6981815fb70bf735b7342bcf3335f3cd85f
-vendor/lib/libxtadapter.so|d352c8cbb4423fee971c5388e5548a47e80363f7
-vendor/lib/libxtwifi_ulp_adaptor.so|866e87a3722458202e4fd894929e1dc4230e04ed
+-lib64/libloc_api_v02.so
+-lib64/libloc_ds_api.so
+-lib/libloc_api_v02.so
+-lib/libloc_ds_api.so
+vendor/lib64/hw/flp.default.so
+vendor/lib64/libflp.so
+vendor/lib64/libgeofence.so
+vendor/lib64/libizat_core.so
+vendor/lib64/liblbs_core.so
+vendor/lib/hw/flp.default.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
 
 # Graphics
 # Adreno 300 - from crackling
