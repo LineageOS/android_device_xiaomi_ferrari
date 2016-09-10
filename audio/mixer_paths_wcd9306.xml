@@ -22,10 +22,10 @@
     <ctl name="TTY Mode" value="OFF" />
     <ctl name="LINEOUT1 Volume" value="20" />
     <ctl name="LINEOUT2 Volume" value="20" />
-    <ctl name="HPHL Volume" value="20" />
-    <ctl name="HPHR Volume" value="20" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
+    <ctl name="HPHL Volume" value="22" />
+    <ctl name="HPHR Volume" value="22" />
+    <ctl name="RX1 Digital Volume" value="89" />
+    <ctl name="RX2 Digital Volume" value="89" />
     <ctl name="RX3 Digital Volume" value="84" />
     <ctl name="RX4 Digital Volume" value="84" />
     <ctl name="ADC1 Volume" value="12" />
@@ -859,6 +859,8 @@
     </path>
 
     <path name="speaker">
+        <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="SPK DAC Switch" value="1" />
     </path>
 
     <path name="speaker-lite">
@@ -995,7 +997,7 @@
         <ctl name="SLIM_0_TX Channels" value="One" />
         <ctl name="SLIM TX1 MUX" value="DEC1" />
         <ctl name="DEC1 MUX" value="ADC2" />
-        <ctl name="ADC2 Volume" value="3" />
+        <ctl name="ADC2 Volume" value="6" />
         <ctl name="DEC1 Volume" value="84" />
     </path>
 
@@ -1296,9 +1298,9 @@
         <ctl name="AIF1_CAP Mixer SLIM TX1" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX2" value="1" />
         <ctl name="SLIM TX1 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="DEC1 MUX" value="ADC4" />
         <ctl name="SLIM TX2 MUX" value="DEC2" />
-        <ctl name="DEC2 MUX" value="ADC4" />
+        <ctl name="DEC2 MUX" value="ADC1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
         <ctl name="ADC1 Volume" value="3" />
         <ctl name="ADC4 Volume" value="3" />
@@ -1499,6 +1501,18 @@
 
     <path name="listen-handset-mic">
         <path name="adc1" />
+    </path>
+
+    <path name="line">
+          <path name="headphones" />
+    </path>
+
+    <path name="voice-line">
+          <path name="voice-headphones" />
+    </path>
+
+    <path name="speaker-and-line">
+          <path name="speaker-and-headphones" />
     </path>
 
 </mixer>
