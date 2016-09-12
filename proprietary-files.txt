@@ -1,3 +1,12 @@
+# ACDB Data
+etc/acdbdata/MTP/MTP_WCD9306_Bluetooth_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_General_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_Global_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_Handset_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_Hdmi_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_Headset_cal.acdb
+etc/acdbdata/MTP/MTP_WCD9306_Speaker_cal.acdb
+
 # ADSP
 bin/adsprpcd
 vendor/lib64/libadsprpc.so
@@ -25,8 +34,6 @@ vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib/hw/sound_trigger.primary.msm8916.so
-vendor/lib/libhwdaphal.so
-vendor/lib64/libhwdaphal.so
 
 # Bluetooth
 bin/btnvtool
@@ -576,6 +583,7 @@ vendor/bin/mm-pp-daemon
 vendor/lib64/libdisp-aba.so
 -vendor/lib64/libmm-abl.so
 vendor/lib64/libmm-abl-oem.so
+vendor/lib64/libmm-disp-apis.so
 
 # Radio - from kipper
 -app/shutdownlistener/shutdownlistener.apk
