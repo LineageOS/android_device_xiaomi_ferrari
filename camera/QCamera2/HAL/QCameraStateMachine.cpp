@@ -1244,6 +1244,12 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
                 break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
+                break;
             default:
                 ALOGE("%s: Invalid internal event %d in state(%d)",
                             __func__, internal_evt->evt_type, m_state);
@@ -1387,6 +1393,12 @@ int32_t QCameraStateMachine::procEvtPrepareSnapshotState(qcamera_sm_evt_enum_t e
                 break;
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
 
             default:
@@ -1714,6 +1726,12 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
                 break;
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             default:
                 break;
@@ -2109,6 +2127,12 @@ int32_t QCameraStateMachine::procEvtRecordingState(qcamera_sm_evt_enum_t evt,
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
                 break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
+                break;
             default:
                 break;
             }
@@ -2449,6 +2473,12 @@ int32_t QCameraStateMachine::procEvtVideoPicTakingState(qcamera_sm_evt_enum_t ev
                 break;
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             default:
                 break;
@@ -2835,6 +2865,12 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
                 break;
             case QCAMERA_INTERNAL_EVT_AWB_UPDATE:
                 rc = m_parent->processAWBUpdate(internal_evt->awb_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_AE_UPDATE:
+                rc = m_parent->processAEInfo(internal_evt->ae_data);
+                break;
+            case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
+                rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             default:
                 break;

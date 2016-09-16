@@ -5,9 +5,6 @@ LOCAL_PATH:=$(call my-dir)
 # Build command line test app: mm-qcamera-app
 include $(CLEAR_VARS)
 
-# b/24171136 many files not compiling with clang/llvm yet
-LOCAL_CLANG := false
-
 LOCAL_CFLAGS:= \
         -DAMSS_VERSION=$(AMSS_VERSION) \
         $(mmcamera_debug_defines) \
@@ -98,7 +95,7 @@ endif
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_SHARED_LIBRARIES:= \
-         liblog libcutils libdl libmmcamera_interface
+         libcutils libdl libmmcamera_interface
 
 LOCAL_MODULE_TAGS := optional
 
@@ -111,9 +108,6 @@ ifeq ($(call is-vendor-board-platform,QCOM),true)
 # Build tuning library
 include $(CLEAR_VARS)
 
-# b/24171136 many files not compiling with clang/llvm yet
-LOCAL_CLANG := false
-
 LOCAL_CFLAGS:= \
         -DAMSS_VERSION=$(AMSS_VERSION) \
         $(mmcamera_debug_defines) \
@@ -204,7 +198,7 @@ endif
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_SHARED_LIBRARIES:= \
-         liblog libcutils libdl libmmcamera_interface
+         libcutils libdl libmmcamera_interface
 
 LOCAL_MODULE_TAGS := optional
 

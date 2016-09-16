@@ -62,35 +62,35 @@ static pthread_mutex_t g_camlock = PTHREAD_MUTEX_INITIALIZER;
 volatile uint32_t gCamHalLogLevel = 0;
 
 camera_device_ops_t QCamera2HardwareInterface::mCameraOps = {
-    .set_preview_window =         QCamera2HardwareInterface::set_preview_window,
-    .set_callbacks =              QCamera2HardwareInterface::set_CallBacks,
-    .enable_msg_type =            QCamera2HardwareInterface::enable_msg_type,
-    .disable_msg_type =           QCamera2HardwareInterface::disable_msg_type,
-    .msg_type_enabled =           QCamera2HardwareInterface::msg_type_enabled,
+    set_preview_window:         QCamera2HardwareInterface::set_preview_window,
+    set_callbacks:              QCamera2HardwareInterface::set_CallBacks,
+    enable_msg_type:            QCamera2HardwareInterface::enable_msg_type,
+    disable_msg_type:           QCamera2HardwareInterface::disable_msg_type,
+    msg_type_enabled:           QCamera2HardwareInterface::msg_type_enabled,
 
-    .start_preview =              QCamera2HardwareInterface::start_preview,
-    .stop_preview =               QCamera2HardwareInterface::stop_preview,
-    .preview_enabled =            QCamera2HardwareInterface::preview_enabled,
-    .store_meta_data_in_buffers = QCamera2HardwareInterface::store_meta_data_in_buffers,
+    start_preview:              QCamera2HardwareInterface::start_preview,
+    stop_preview:               QCamera2HardwareInterface::stop_preview,
+    preview_enabled:            QCamera2HardwareInterface::preview_enabled,
+    store_meta_data_in_buffers: QCamera2HardwareInterface::store_meta_data_in_buffers,
 
-    .start_recording =            QCamera2HardwareInterface::start_recording,
-    .stop_recording =             QCamera2HardwareInterface::stop_recording,
-    .recording_enabled =          QCamera2HardwareInterface::recording_enabled,
-    .release_recording_frame =    QCamera2HardwareInterface::release_recording_frame,
+    start_recording:            QCamera2HardwareInterface::start_recording,
+    stop_recording:             QCamera2HardwareInterface::stop_recording,
+    recording_enabled:          QCamera2HardwareInterface::recording_enabled,
+    release_recording_frame:    QCamera2HardwareInterface::release_recording_frame,
 
-    .auto_focus =                 QCamera2HardwareInterface::auto_focus,
-    .cancel_auto_focus =          QCamera2HardwareInterface::cancel_auto_focus,
+    auto_focus:                 QCamera2HardwareInterface::auto_focus,
+    cancel_auto_focus:          QCamera2HardwareInterface::cancel_auto_focus,
 
-    .take_picture =               QCamera2HardwareInterface::take_picture,
-    .cancel_picture =             QCamera2HardwareInterface::cancel_picture,
+    take_picture:               QCamera2HardwareInterface::take_picture,
+    cancel_picture:             QCamera2HardwareInterface::cancel_picture,
 
-    .set_parameters =             QCamera2HardwareInterface::set_parameters,
-    .get_parameters =             QCamera2HardwareInterface::get_parameters,
-    .put_parameters =             QCamera2HardwareInterface::put_parameters,
-    .send_command =               QCamera2HardwareInterface::send_command,
+    set_parameters:             QCamera2HardwareInterface::set_parameters,
+    get_parameters:             QCamera2HardwareInterface::get_parameters,
+    put_parameters:             QCamera2HardwareInterface::put_parameters,
+    send_command:               QCamera2HardwareInterface::send_command,
 
-    .release =                    QCamera2HardwareInterface::release,
-    .dump =                       QCamera2HardwareInterface::dump,
+    release:                    QCamera2HardwareInterface::release,
+    dump:                       QCamera2HardwareInterface::dump,
 };
 
 /*===========================================================================
@@ -1305,17 +1305,6 @@ int QCamera2HardwareInterface::closeCamera()
     m_postprocessor.stop();
     m_postprocessor.deinit();
 
-    //free all pending api results here
-    if(m_apiResultList != NULL) {
-        api_result_list *apiResultList = m_apiResultList;
-        api_result_list *apiResultListNext;
-        while (apiResultList != NULL) {
-            apiResultListNext = apiResultList->next;
-            free(apiResultList);
-            apiResultList = apiResultListNext;
-        }
-    }
-
     m_thermalAdapter.deinit();
 
     // delete all channels if not already deleted
@@ -1324,6 +1313,17 @@ int QCamera2HardwareInterface::closeCamera()
             m_channels[i]->stop();
             delete m_channels[i];
             m_channels[i] = NULL;
+        }
+    }
+
+    //free all pending api results here
+    if(m_apiResultList != NULL) {
+        api_result_list *apiResultList = m_apiResultList;
+        api_result_list *apiResultListNext;
+        while (apiResultList != NULL) {
+            apiResultListNext = apiResultList->next;
+            free(apiResultList);
+            apiResultList = apiResultListNext;
         }
     }
 
@@ -1713,14 +1713,17 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
                         stream_type);
             } else {
                 cam_dimension_t dim;
+                int minFPS, maxFPS;
                 QCameraGrallocMemory *grallocMemory =
                     new QCameraGrallocMemory(mGetMemory);
 
                 mParameters.getStreamDimension(stream_type, dim);
+                /* we are interested only in maxfps here */
+                mParameters.getPreviewFpsRange(&minFPS, &maxFPS);
                 if (grallocMemory)
                     grallocMemory->setWindowInfo(mPreviewWindow, dim.width,
                         dim.height, stride, scanline,
-                        mParameters.getPreviewHalPixelFormat());
+                        mParameters.getPreviewHalPixelFormat(), maxFPS);
                 mem = grallocMemory;
             }
         }
@@ -1731,17 +1734,20 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
                 mem = new QCameraStreamMemory(mGetMemory, bCachedMem);
             } else {
                 cam_dimension_t dim;
+                int minFPS, maxFPS;
                 QCameraGrallocMemory *grallocMemory =
                     new QCameraGrallocMemory(mGetMemory);
 
                 mParameters.getStreamDimension(stream_type, dim);
+                /* we are interested only in maxfps here */
+                mParameters.getPreviewFpsRange(&minFPS, &maxFPS);
                 if (grallocMemory) {
                     grallocMemory->setWindowInfo(mPreviewWindow,
                         dim.width,
                         dim.height,
                         stride,
                         scanline,
-                        mParameters.getPreviewHalPixelFormat());
+                        mParameters.getPreviewHalPixelFormat(), maxFPS);
                 }
                 mem = grallocMemory;
             }
@@ -3905,18 +3911,20 @@ int32_t QCamera2HardwareInterface::sendEvtNotify(int32_t msg_type,
     return m_cbNotifier.notifyCallback(cbArg);
 }
 
-void QCamera2HardwareInterface::processAEInfo(cam_ae_params_t &ae_params)
+int32_t QCamera2HardwareInterface::processAEInfo(cam_ae_params_t &ae_params)
 {
     pthread_mutex_lock(&m_parm_lock);
     mParameters.updateAEInfo(ae_params);
     pthread_mutex_unlock(&m_parm_lock);
+    return NO_ERROR;
 }
 
-void QCamera2HardwareInterface::processFocusPositionInfo(cam_focus_pos_info_t &cur_pos_info)
+int32_t QCamera2HardwareInterface::processFocusPositionInfo(cam_focus_pos_info_t &cur_pos_info)
 {
     pthread_mutex_lock(&m_parm_lock);
     mParameters.updateCurrentFocusPosition(cur_pos_info);
     pthread_mutex_unlock(&m_parm_lock);
+    return NO_ERROR;
 }
 
 /*===========================================================================
