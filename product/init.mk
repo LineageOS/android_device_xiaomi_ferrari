@@ -4,7 +4,6 @@ PRODUCT_PACKAGES += \
     hsic.control.bt.sh \
     init.class_main.sh \
     init.qcom.early_boot.sh \
-    init.qcom.factory.sh \
     init.qcom.fm.sh \
     init.qcom.sh \
     init.target.rc \
