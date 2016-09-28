@@ -39,6 +39,12 @@ on fs
     mount_all fstab.qcom
     swapon_all /fstab.qcom
 
+    # Configure UKSM
+    chown root system /sys/kernel/mm/uksm/sleep_millisecs
+    chmod 0664 /sys/kernel/mm/uksm/sleep_millisecs
+    write /sys/kernel/mm/uksm/run 1
+    write /sys/kernel/mm/uksm/sleep_millisecs 500
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
