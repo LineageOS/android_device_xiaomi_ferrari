@@ -47,6 +47,7 @@ write_makefiles "$MY_DIR"/proprietary-files.txt
 # in case the BSP is actually being built
 printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
 printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8916/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
 
 echo "endif" >> "$PRODUCTMK"
 
@@ -59,4 +60,3 @@ EOF
 
 # We are done!
 write_footers
-
