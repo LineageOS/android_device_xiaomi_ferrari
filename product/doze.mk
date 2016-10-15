@@ -1,3 +1,3 @@
 # Doze
 PRODUCT_PACKAGES += \
-    FerrariDoze
+    XiaomiDoze
