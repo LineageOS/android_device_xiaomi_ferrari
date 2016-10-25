@@ -538,7 +538,7 @@ vendor/lib64/libmm-disp-apis.so
 # Radio - from kipper
 -app/shutdownlistener/shutdownlistener.apk|39061bdec43a83c496f7ad4d8faed54317efb0ef
 -app/QtiTelephonyService/QtiTelephonyService.apk|bf93f4c99a9741730a639cc26327b7ea0cab0bbc
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|f97e25cb87b1ba59648097329ef92b1a341ff313
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|315a9441e0277b5e3c5de193df8149dde1a20cdb
 bin/netmgrd|e500d52c6629145af0daeaf884ce8c031d09b72f
 bin/qmuxd|bb7e0d13cf1229e40754b84539ca2c396300f5c8
 bin/radish|61ac905ce0b0056d0c954e6197cd930dd75ea2c4
