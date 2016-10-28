@@ -1979,14 +1979,6 @@ int32_t mm_channel_handle_metadata(
             goto end;
         }
 
-        /* Flush all the OLD buffers if Frame ID is reset */
-        if (metadata->is_frame_id_reset) {
-            CDBG_HIGH("%s: Flush all the old frames as frame ID is reset is_frame_id_reset=%d",
-                    __func__, metadata->is_frame_id_reset);
-            mm_channel_superbuf_flush(ch_obj,queue, CAM_STREAM_TYPE_DEFAULT);
-            queue->expected_frame_id = 1;
-        }
-
         if (metadata->is_meta_invalid) {
             CDBG_HIGH("meta invalid: Skipping meta frame_id = %d \n",
                     metadata->meta_invalid_params.meta_frame_id);
@@ -2083,7 +2075,6 @@ int32_t mm_channel_handle_metadata(
                  ch_obj->need3ABracketing = FALSE;
             }
         }
-        CDBG("%s: queue->expected_frame_id = %d", __func__, queue->expected_frame_id);
     }
 end:
     return rc;
@@ -2131,12 +2122,9 @@ int32_t mm_channel_superbuf_comp_and_enqueue(
         return -1;
     }
 
-    CDBG("%s: frame_idx = %d expected_frame_id = %d, match_cnt=%d", __func__,
-            buf_info->frame_idx, queue->expected_frame_id, queue->match_cnt);
-
     if (mm_channel_util_seq_comp_w_rollover(buf_info->frame_idx,
                                             queue->expected_frame_id) < 0) {
-        CDBG_HIGH("%s: incoming buf is older than expected buf id, will discard it", __func__);
+        /* incoming buf is older than expected buf id, will discard it */
         mm_channel_qbuf(ch_obj, buf_info->buf);
         return 0;
     }
@@ -2237,7 +2225,7 @@ int32_t mm_channel_superbuf_comp_and_enqueue(
     } else {
         if (  ( queue->attr.max_unmatched_frames < unmatched_bundles ) &&
               ( NULL == last_buf ) ) {
-            CDBG("%s, incoming frame is older than the last bundled one", __func__);
+            /* incoming frame is older than the last bundled one */
             mm_channel_qbuf(ch_obj, buf_info->buf);
         } else {
             if ( queue->attr.max_unmatched_frames < unmatched_bundles ) {
@@ -2255,8 +2243,7 @@ int32_t mm_channel_superbuf_comp_and_enqueue(
                 free(node);
                 free(super_buf);
             }
-            CDBG("%s, unmatched_bundles=%d insert the new frame at the appropriate position",
-                    __func__, unmatched_bundles);
+            /* insert the new frame at the appropriate position. */
 
             mm_channel_queue_node_t *new_buf = NULL;
             cam_node_t* new_node = NULL;

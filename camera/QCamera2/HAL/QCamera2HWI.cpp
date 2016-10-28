@@ -1305,17 +1305,6 @@ int QCamera2HardwareInterface::closeCamera()
     m_postprocessor.stop();
     m_postprocessor.deinit();
 
-    m_thermalAdapter.deinit();
-
-    // delete all channels if not already deleted
-    for (i = 0; i < QCAMERA_CH_TYPE_MAX; i++) {
-        if (m_channels[i] != NULL) {
-            m_channels[i]->stop();
-            delete m_channels[i];
-            m_channels[i] = NULL;
-        }
-    }
-
     //free all pending api results here
     if(m_apiResultList != NULL) {
         api_result_list *apiResultList = m_apiResultList;
@@ -1324,6 +1313,17 @@ int QCamera2HardwareInterface::closeCamera()
             apiResultListNext = apiResultList->next;
             free(apiResultList);
             apiResultList = apiResultListNext;
+        }
+    }
+
+    m_thermalAdapter.deinit();
+
+    // delete all channels if not already deleted
+    for (i = 0; i < QCAMERA_CH_TYPE_MAX; i++) {
+        if (m_channels[i] != NULL) {
+            m_channels[i]->stop();
+            delete m_channels[i];
+            m_channels[i] = NULL;
         }
     }
 
@@ -1713,17 +1713,14 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
                         stream_type);
             } else {
                 cam_dimension_t dim;
-                int minFPS, maxFPS;
                 QCameraGrallocMemory *grallocMemory =
                     new QCameraGrallocMemory(mGetMemory);
 
                 mParameters.getStreamDimension(stream_type, dim);
-                /* we are interested only in maxfps here */
-                mParameters.getPreviewFpsRange(&minFPS, &maxFPS);
                 if (grallocMemory)
                     grallocMemory->setWindowInfo(mPreviewWindow, dim.width,
                         dim.height, stride, scanline,
-                        mParameters.getPreviewHalPixelFormat(), maxFPS);
+                        mParameters.getPreviewHalPixelFormat());
                 mem = grallocMemory;
             }
         }
@@ -1734,20 +1731,17 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
                 mem = new QCameraStreamMemory(mGetMemory, bCachedMem);
             } else {
                 cam_dimension_t dim;
-                int minFPS, maxFPS;
                 QCameraGrallocMemory *grallocMemory =
                     new QCameraGrallocMemory(mGetMemory);
 
                 mParameters.getStreamDimension(stream_type, dim);
-                /* we are interested only in maxfps here */
-                mParameters.getPreviewFpsRange(&minFPS, &maxFPS);
                 if (grallocMemory) {
                     grallocMemory->setWindowInfo(mPreviewWindow,
                         dim.width,
                         dim.height,
                         stride,
                         scanline,
-                        mParameters.getPreviewHalPixelFormat(), maxFPS);
+                        mParameters.getPreviewHalPixelFormat());
                 }
                 mem = grallocMemory;
             }
@@ -3911,20 +3905,18 @@ int32_t QCamera2HardwareInterface::sendEvtNotify(int32_t msg_type,
     return m_cbNotifier.notifyCallback(cbArg);
 }
 
-int32_t QCamera2HardwareInterface::processAEInfo(cam_ae_params_t &ae_params)
+void QCamera2HardwareInterface::processAEInfo(cam_ae_params_t &ae_params)
 {
     pthread_mutex_lock(&m_parm_lock);
     mParameters.updateAEInfo(ae_params);
     pthread_mutex_unlock(&m_parm_lock);
-    return NO_ERROR;
 }
 
-int32_t QCamera2HardwareInterface::processFocusPositionInfo(cam_focus_pos_info_t &cur_pos_info)
+void QCamera2HardwareInterface::processFocusPositionInfo(cam_focus_pos_info_t &cur_pos_info)
 {
     pthread_mutex_lock(&m_parm_lock);
     mParameters.updateCurrentFocusPosition(cur_pos_info);
     pthread_mutex_unlock(&m_parm_lock);
-    return NO_ERROR;
 }
 
 /*===========================================================================

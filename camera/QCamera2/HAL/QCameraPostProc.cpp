@@ -322,11 +322,7 @@ int32_t QCameraPostProcessor::start(QCameraChannel *pSrcChannel)
         if ( NULL != pSnapshotStream ) {
             mm_jpeg_encode_params_t encodeParam;
             memset(&encodeParam, 0, sizeof(mm_jpeg_encode_params_t));
-            rc = getJpegEncodingConfig(encodeParam, pSnapshotStream, pThumbStream);
-            if (rc != NO_ERROR) {
-                ALOGE("%s: error getting encoding config", __func__);
-                return rc;
-            }
+            getJpegEncodingConfig(encodeParam, pSnapshotStream, pThumbStream);
             CDBG_HIGH("[KPI Perf] %s : call jpeg create_session", __func__);
 
             rc = mJpegHandle.create_session(mJpegClientHandle,
@@ -491,9 +487,8 @@ int32_t QCameraPostProcessor::getJpegEncodingConfig(mm_jpeg_encode_params_t& enc
         if (thumb_stream == NULL) {
             thumb_stream = main_stream;
 
-            if (((90 == m_parent->getJpegRotation())
-                    || (270 == m_parent->getJpegRotation()))
-                    && (m_parent->needRotationReprocess())) {
+            if ((90 == m_parent->getJpegRotation())
+                    || (270 == m_parent->getJpegRotation())) {
                 IMG_SWAP(encode_parm.thumb_dim.dst_dim.width,
                         encode_parm.thumb_dim.dst_dim.height);
             }
@@ -1611,7 +1606,7 @@ int32_t QCameraPostProcessor::encodeData(qcamera_jpeg_data_t *jpeg_job_data,
         cbArg.cb_type = QCAMERA_DATA_CALLBACK;
         cbArg.msg_type = CAMERA_MSG_RAW_IMAGE;
         cbArg.data = mem;
-        cbArg.index = 0;
+        cbArg.index = 1;
         m_parent->m_cbNotifier.notifyCallback(cbArg);
     }
     if (NULL != m_parent->mNotifyCb &&
@@ -1639,11 +1634,7 @@ int32_t QCameraPostProcessor::encodeData(qcamera_jpeg_data_t *jpeg_job_data,
         // create jpeg encoding session
         mm_jpeg_encode_params_t encodeParam;
         memset(&encodeParam, 0, sizeof(mm_jpeg_encode_params_t));
-        ret = getJpegEncodingConfig(encodeParam, main_stream, thumb_stream);
-        if (ret != NO_ERROR) {
-            ALOGE("%s: error getting encoding config", __func__);
-            return ret;
-        }
+        getJpegEncodingConfig(encodeParam, main_stream, thumb_stream);
         CDBG_HIGH("[KPI Perf] %s : call jpeg create_session", __func__);
         ret = mJpegHandle.create_session(mJpegClientHandle, &encodeParam, &mJpegSessionId);
         if (ret != NO_ERROR) {
@@ -1825,9 +1816,8 @@ int32_t QCameraPostProcessor::encodeData(qcamera_jpeg_data_t *jpeg_job_data,
             thumb_stream = main_stream;
             thumb_frame = main_frame;
 
-            if (((90 == m_parent->getJpegRotation())
-                    || (270 == m_parent->getJpegRotation()))
-                    && (m_parent->needRotationReprocess())) {
+            if ((90 == m_parent->getJpegRotation())
+                    || (270 == m_parent->getJpegRotation())) {
                 IMG_SWAP(jpg_job.encode_job.thumb_dim.dst_dim.width,
                         jpg_job.encode_job.thumb_dim.dst_dim.height);
             }
