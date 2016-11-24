@@ -8,4 +8,5 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.target.rc \
     init.qcom.wifi.sh \
-    qca6234-service.sh
+    qca6234-service.sh \
+    sensor.ferrari.rc
