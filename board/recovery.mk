@@ -1,2 +1,2 @@
 # Recovery
-TARGET_RECOVERY_FSTAB := device/xiaomi/ferrari/rootdir/root/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/xiaomi/ferrari/rootdir/etc/fstab.qcom

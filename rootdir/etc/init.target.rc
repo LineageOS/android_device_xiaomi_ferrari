@@ -1,0 +1,91 @@
+# Copyright (c) 2014, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+
+on post-fs-data
+    chown system system /dev/sysmatdrv
+    chmod 0660 /dev/sysmatdrv
+
+on boot
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
+    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+    mkdir /persist/bluetooth 0770 bluetooth bluetooth
+
+# Vibrator
+    chmod 0660 /dev/tspdrv
+    chown root shell /dev/tspdrv
+    chown system system /sys/class/timed_output/vibrator/enable
+
+    # Notification LED permissions
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/red/risetime
+    chown system system /sys/class/leds/red/falltime
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/green/risetime
+    chown system system /sys/class/leds/green/falltime
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/blue/risetime
+    chown system system /sys/class/leds/blue/falltime
+
+    ## cmhw permissions
+    # key disabler
+    chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-004a/disable_keys
+
+    # doubletap to wake
+    chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-004a/wakeup_mode
+    chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-004a/wakeup_mode
+
+on property:bluetooth.isEnabled=true
+    start btwlancoex
+    write /sys/class/bluetooth/hci0/idle_timeout 7000
+
+on property:bluetooth.sap.status=running
+    start bt-sap
+
+on property:bluetooth.sap.status=stopped
+    stop bt-sap
+
+on property:bluetooth.startbtsnoop=true
+    start btsnoop
+
+on property:bluetooth.startbtsnoop=false
+    stop btsnoop
+
+service bt-sap /system/bin/sapd 15
+    user bluetooth
+    group bluetooth net_bt_admin
+    class late_start
+    disabled
+    oneshot
+
+service btsnoop /system/bin/btsnoop
+   user bluetooth
+   group bluetooth net_bt_admin sdcard_rw sdcard_r
+   class late_start
+   disabled
+   oneshot
