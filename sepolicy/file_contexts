@@ -1,2 +1,5 @@
 # for Settings' access to VibratorHW
 /sys/class/timed_output/vibrator/enable         u:object_r:sysfs_vibrator:s0
+
+# Dev block nodes
+/dev/block/bootdevice/by-name/bk1             u:object_r:bk1_block_device:s0
