@@ -463,8 +463,7 @@ vendor/lib/libqmi.so|c7e6fdce02808c8ce8a0a82a6970e77a23cc5686
 vendor/lib/libsmemlog.so|b87c633d0faa143db4744bd17de5b03d600df15e
 
 # Postprocessing
-# mm-pp-daemon from hydrogen
-bin/mm-pp-daemon|3937f1fe46484d42d5ece121d136ae7707f7d454
+bin/mm-pp-daemon
 vendor/lib64/libdisp-aba.so
 -vendor/lib64/libmm-abl.so
 vendor/lib64/libmm-abl-oem.so
