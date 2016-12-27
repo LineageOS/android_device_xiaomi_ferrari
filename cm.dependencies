@@ -18,5 +18,9 @@
   {
     "repository": "android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings"
+  },
+  {
+    "repository": "proprietary_vendor_qcom_binaries",
+    "target_path": "vendor/qcom/binaries"
   }
 ]
