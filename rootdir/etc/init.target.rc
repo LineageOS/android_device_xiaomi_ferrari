@@ -39,10 +39,11 @@ on boot
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
 
-# Vibrator
-    chmod 0660 /dev/tspdrv
-    chown root shell /dev/tspdrv
+    # Vibrator
     chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/amp
+    chmod 0664 /sys/class/timed_output/vibrator/amp
+
 
     # Notification LED permissions
     chown system system /sys/class/leds/red/risetime
