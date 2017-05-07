@@ -37,4 +37,12 @@
     <!-- Doze: pulse parameter - delay to wait for the screen to wake up after an intent -->
     <integer name="doze_pulse_delay_in_intent">0</integer>
 
+    <!-- The number of columns in the QuickSettings -->
+    <integer name="quick_settings_num_columns">4</integer>
+
+    <!-- The default tiles to display in QuickSettings -->
+    <string name="quick_settings_tiles_default" translatable="false">
+        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane
+    </string>
+
 </resources>
