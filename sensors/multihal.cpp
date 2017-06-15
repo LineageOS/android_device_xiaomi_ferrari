@@ -129,7 +129,7 @@ static int get_global_handle(FullHandle* full_handle) {
     return global_handle;
 }
 
-static const int SENSOR_EVENT_QUEUE_CAPACITY = 20;
+static const int SENSOR_EVENT_QUEUE_CAPACITY = 36;
 
 struct TaskContext {
   sensors_poll_device_t* device;
@@ -155,7 +155,11 @@ void *writerTask(void* ptr) {
         ALOGV("writerTask before poll() - bufferSize = %d", bufferSize);
         eventsPolled = device->poll(device, buffer, bufferSize);
         ALOGV("writerTask poll() got %d events.", eventsPolled);
-        if (eventsPolled == 0) {
+        if (eventsPolled <= 0) {
+            if (eventsPolled < 0) {
+                ALOGV("writerTask ignored error %d from %s", eventsPolled, device->common.module->name);
+                ALOGE("ERROR: Fix %s so it does not return error from poll()", device->common.module->name);
+            }
             continue;
         }
         pthread_mutex_lock(&queue_mutex);
@@ -195,6 +199,7 @@ struct sensors_poll_context_t {
     int poll(sensors_event_t* data, int count);
     int batch(int handle, int flags, int64_t period_ns, int64_t timeout);
     int flush(int handle);
+    int inject_sensor_data(struct sensors_poll_device_1 *dev, const sensors_event_t *data);
     int close();
 
     std::vector<hw_device_t*> sub_hw_devices;
@@ -228,7 +233,7 @@ void sensors_poll_context_t::addSubHwDevice(struct hw_device_t* sub_hw_device) {
 // Returns the device pointer, or NULL if the global handle is invalid.
 sensors_poll_device_t* sensors_poll_context_t::get_v0_device_by_handle(int global_handle) {
     int sub_index = get_module_index(global_handle);
-    if (sub_index < 0 || sub_index >= this->sub_hw_devices.size()) {
+    if (sub_index < 0 || sub_index >= (int) this->sub_hw_devices.size()) {
         return NULL;
     }
     return (sensors_poll_device_t*) this->sub_hw_devices[sub_index];
@@ -237,7 +242,7 @@ sensors_poll_device_t* sensors_poll_context_t::get_v0_device_by_handle(int globa
 // Returns the device pointer, or NULL if the global handle is invalid.
 sensors_poll_device_1_t* sensors_poll_context_t::get_v1_device_by_handle(int global_handle) {
     int sub_index = get_module_index(global_handle);
-    if (sub_index < 0 || sub_index >= this->sub_hw_devices.size()) {
+    if (sub_index < 0 || sub_index >= (int) this->sub_hw_devices.size()) {
         return NULL;
     }
     return (sensors_poll_device_1_t*) this->sub_hw_devices[sub_index];
@@ -263,6 +268,11 @@ static bool halIsCompliant(sensors_poll_context_t *ctx, int handle) {
     return version != -1 && HAL_VERSION_IS_COMPLIANT(version);
 }
 
+static bool halIsAPILevelCompliant(sensors_poll_context_t *ctx, int handle, int level) {
+    int version = ctx->get_device_version_by_handle(handle);
+    return version != -1 && (version >= level);
+}
+
 const char *apiNumToStr(int version) {
     switch(version) {
     case SENSORS_DEVICE_API_VERSION_1_0:
@@ -273,6 +283,8 @@ const char *apiNumToStr(int version) {
         return "SENSORS_DEVICE_API_VERSION_1_2";
     case SENSORS_DEVICE_API_VERSION_1_3:
         return "SENSORS_DEVICE_API_VERSION_1_3";
+    case SENSORS_DEVICE_API_VERSION_1_4:
+        return "SENSORS_DEVICE_API_VERSION_1_4";
     default:
         return "UNKNOWN";
     }
@@ -399,6 +411,25 @@ int sensors_poll_context_t::flush(int handle) {
     return retval;
 }
 
+int sensors_poll_context_t::inject_sensor_data(struct sensors_poll_device_1 *dev,
+                                               const sensors_event_t *data) {
+    int retval = -EINVAL;
+    ALOGV("inject_sensor_data");
+    // Get handle for the sensor owning the event being injected
+    int local_handle = get_local_handle(data->sensor);
+    sensors_poll_device_1_t* v1 = this->get_v1_device_by_handle(data->sensor);
+    if (halIsAPILevelCompliant(this, data->sensor, SENSORS_DEVICE_API_VERSION_1_4) &&
+            local_handle >= 0 && v1) {
+        retval = v1->inject_sensor_data(dev, data);
+    } else {
+        ALOGE("IGNORED inject_sensor_data(type=%d, handle=%d) call to non-API-compliant sensor",
+                data->type, data->sensor);
+    }
+    ALOGV("retval %d", retval);
+    return retval;
+
+}
+
 int sensors_poll_context_t::close() {
     ALOGV("close");
     for (std::vector<hw_device_t*>::iterator it = this->sub_hw_devices.begin();
@@ -449,6 +480,12 @@ static int device__batch(struct sensors_poll_device_1 *dev, int handle,
 static int device__flush(struct sensors_poll_device_1 *dev, int handle) {
     sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
     return ctx->flush(handle);
+}
+
+static int device__inject_sensor_data(struct sensors_poll_device_1 *dev,
+        const sensors_event_t *data) {
+    sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
+    return ctx->inject_sensor_data(dev, data);
 }
 
 static int open_sensors(const struct hw_module_t* module, const char* name,
@@ -612,22 +649,22 @@ static int module__get_sensors_list(__unused struct sensors_module_t* module,
 }
 
 static struct hw_module_methods_t sensors_module_methods = {
-    open : open_sensors
+    .open = open_sensors
 };
 
 struct sensors_module_t HAL_MODULE_INFO_SYM = {
-    common :{
-        tag : HARDWARE_MODULE_TAG,
-        version_major : 1,
-        version_minor : 0,
-        id : SENSORS_HARDWARE_MODULE_ID,
-        name : "MultiHal Sensor Module",
-        author : "Google, Inc",
-        methods : &sensors_module_methods,
-        dso : NULL,
-        reserved : {0},
+    .common = {
+        .tag = HARDWARE_MODULE_TAG,
+        .version_major = 1,
+        .version_minor = 0,
+        .id = SENSORS_HARDWARE_MODULE_ID,
+        .name = "MultiHal Sensor Module",
+        .author = "Google, Inc",
+        .methods = &sensors_module_methods,
+        .dso = NULL,
+        .reserved = {0},
     },
-    get_sensors_list : module__get_sensors_list
+    .get_sensors_list = module__get_sensors_list
 };
 
 static int open_sensors(const struct hw_module_t* hw_module, const char* name,
@@ -648,6 +685,7 @@ static int open_sensors(const struct hw_module_t* hw_module, const char* name,
     dev->proxy_device.poll = device__poll;
     dev->proxy_device.batch = device__batch;
     dev->proxy_device.flush = device__flush;
+    dev->proxy_device.inject_sensor_data = device__inject_sensor_data;
 
     dev->nextReadIndex = 0;
 
@@ -659,7 +697,7 @@ static int open_sensors(const struct hw_module_t* hw_module, const char* name,
         int sub_open_result = sensors_module->common.methods->open(*it, name, &sub_hw_device);
         if (!sub_open_result) {
             if (!HAL_VERSION_IS_COMPLIANT(sub_hw_device->version)) {
-                ALOGE("SENSORS_DEVICE_API_VERSION_1_3 is required for all sensor HALs");
+                ALOGE("SENSORS_DEVICE_API_VERSION_1_3 or newer is required for all sensor HALs");
                 ALOGE("This HAL reports non-compliant API level : %s",
                         apiNumToStr(sub_hw_device->version));
                 ALOGE("Sensors belonging to this HAL will get ignored !");
