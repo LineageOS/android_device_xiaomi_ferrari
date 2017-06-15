@@ -1,4 +1,4 @@
-# ACDB Data
+# ACDB
 etc/acdbdata/MTP/MTP_WCD9306_Bluetooth_cal.acdb
 etc/acdbdata/MTP/MTP_WCD9306_General_cal.acdb
 etc/acdbdata/MTP/MTP_WCD9306_Global_cal.acdb
@@ -14,10 +14,6 @@ vendor/lib/libadsprpc.so
 vendor/lib/libfastcvopt.so
 
 # Audio
-lib/libDiracAPI_SHARED.so
-lib/soundfx/libdirac.so
-etc/firmware/seltech_mono.cnt
-vendor/etc/diracmobile.config
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
@@ -33,7 +29,6 @@ vendor/lib/libFlacSwDec.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/hw/sound_trigger.primary.msm8916.so
 
 # Bluetooth
 bin/btnvtool
@@ -68,53 +63,6 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegenc.so
-vendor/lib/libmmcamera_hi256.so
-vendor/lib/libmmcamera_imx132.so
-vendor/lib/libmmcamera_imx134.so
-vendor/lib/libmmcamera_imx135.so
-vendor/lib/libmmcamera_imx179.so
-vendor/lib/libmmcamera_imx214_ofilm_largan.so
-vendor/lib/libmmcamera_imx214_ofilm_sunny_eeprom.so
-vendor/lib/libmmcamera_imx214.so
-vendor/lib/libmmcamera_imx214_sunny_eeprom.so
-vendor/lib/libmmcamera_imx214_sunny_largan.so
-vendor/lib/libmmcamera_mt9m114.so
-vendor/lib/libmmcamera_ofilm_oty5f03_eeprom.so
-vendor/lib/libmmcamera_ov13850.so
-vendor/lib/libmmcamera_ov16825.so
-vendor/lib/libmmcamera_ov2680_5987fhq.so
-vendor/lib/libmmcamera_ov2680.so
-vendor/lib/libmmcamera_ov2720.so
-vendor/lib/libmmcamera_ov5645.so
-vendor/lib/libmmcamera_ov5648_oty5f03.so
-vendor/lib/libmmcamera_ov5648_p5v18g.so
-vendor/lib/libmmcamera_ov5648_q5v22e.so
-vendor/lib/libmmcamera_ov5670_ofilm_largan.so
-vendor/lib/libmmcamera_ov5670_ofilm_sunny_eeprom.so
-vendor/lib/libmmcamera_ov5670_sunny_largan.so
-vendor/lib/libmmcamera_ov7695.so
-vendor/lib/libmmcamera_ov8825.so
-vendor/lib/libmmcamera_ov8858_q8v19w.so
-vendor/lib/libmmcamera_ov8858.so
-vendor/lib/libmmcamera_ov8865_q8v18a.so
-vendor/lib/libmmcamera_ov9724.so
-vendor/lib/libmmcamera_s5k3l1yx.so
-vendor/lib/libmmcamera_s5k3m2_f13s01k.so
-vendor/lib/libmmcamera_s5k3m2_ofilm_eeprom.so
-vendor/lib/libmmcamera_S5K4E1_13P1BA.so
-vendor/lib/libmmcamera_SKUAA_ST_gc0339.so
-vendor/lib/libmmcamera_skuab_shinetech_gc0339.so
-vendor/lib/libmmcamera_SKUAB_ST_s5k4e1.so
-vendor/lib/libmmcamera_skuf_ov12830_p12v01c.so
-vendor/lib/libmmcamera_skuf_ov5648_p5v23c.so
-vendor/lib/libmmcamera_sonyimx135_eeprom.so
-vendor/lib/libmmcamera_sp1628.so
-vendor/lib/libmmcamera_sunny_p12v01m_eeprom.so
-vendor/lib/libmmcamera_sunny_p5v23c_eeprom.so
-vendor/lib/libmmcamera_sunny_q13v04b_eeprom.so
-vendor/lib/libmmcamera_sunny_q5v22e_eeprom.so
-vendor/lib/libmmcamera_sunny_q8v18a_eeprom.so
-vendor/lib/libmmcamera_truly_cm7700_eeprom.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_ubifocus_lib.so
 
@@ -368,20 +316,75 @@ vendor/lib/libchromatix_skuf_ov5648_p5v23c_default_video.so
 vendor/lib/libchromatix_skuf_ov5648_p5v23c_preview.so
 vendor/lib/libchromatix_skuf_ov5648_p5v23c_snapshot.so
 
+# Camera eeprom
+vendor/lib/libmmcamera_imx214_ofilm_sunny_eeprom.so
+vendor/lib/libmmcamera_imx214_sunny_eeprom.so
+vendor/lib/libmmcamera_ofilm_oty5f03_eeprom.so
+vendor/lib/libmmcamera_ov5670_ofilm_sunny_eeprom.so
+vendor/lib/libmmcamera_s5k3m2_ofilm_eeprom.so
+vendor/lib/libmmcamera_sonyimx135_eeprom.so
+vendor/lib/libmmcamera_sunny_p12v01m_eeprom.so
+vendor/lib/libmmcamera_sunny_p5v23c_eeprom.so
+vendor/lib/libmmcamera_sunny_q13v04b_eeprom.so
+vendor/lib/libmmcamera_sunny_q5v22e_eeprom.so
+vendor/lib/libmmcamera_sunny_q8v18a_eeprom.so
+vendor/lib/libmmcamera_truly_cm7700_eeprom.so
+
+# Camera sensors
+vendor/lib/libmmcamera_hi256.so
+vendor/lib/libmmcamera_imx132.so
+vendor/lib/libmmcamera_imx134.so
+vendor/lib/libmmcamera_imx135.so
+vendor/lib/libmmcamera_imx179.so
+vendor/lib/libmmcamera_imx214_ofilm_largan.so
+vendor/lib/libmmcamera_imx214.so
+vendor/lib/libmmcamera_imx214_sunny_largan.so
+vendor/lib/libmmcamera_mt9m114.so
+vendor/lib/libmmcamera_ov13850.so
+vendor/lib/libmmcamera_ov16825.so
+vendor/lib/libmmcamera_ov2680_5987fhq.so
+vendor/lib/libmmcamera_ov2680.so
+vendor/lib/libmmcamera_ov2720.so
+vendor/lib/libmmcamera_ov5645.so
+vendor/lib/libmmcamera_ov5648_oty5f03.so
+vendor/lib/libmmcamera_ov5648_p5v18g.so
+vendor/lib/libmmcamera_ov5648_q5v22e.so
+vendor/lib/libmmcamera_ov5670_ofilm_largan.so
+vendor/lib/libmmcamera_ov5670_sunny_largan.so
+vendor/lib/libmmcamera_ov7695.so
+vendor/lib/libmmcamera_ov8825.so
+vendor/lib/libmmcamera_ov8858_q8v19w.so
+vendor/lib/libmmcamera_ov8858.so
+vendor/lib/libmmcamera_ov8865_q8v18a.so
+vendor/lib/libmmcamera_ov9724.so
+vendor/lib/libmmcamera_s5k3l1yx.so
+vendor/lib/libmmcamera_s5k3m2_f13s01k.so
+vendor/lib/libmmcamera_S5K4E1_13P1BA.so
+vendor/lib/libmmcamera_SKUAA_ST_gc0339.so
+vendor/lib/libmmcamera_skuab_shinetech_gc0339.so
+vendor/lib/libmmcamera_SKUAB_ST_s5k4e1.so
+vendor/lib/libmmcamera_skuf_ov12830_p12v01c.so
+vendor/lib/libmmcamera_skuf_ov5648_p5v23c.so
+vendor/lib/libmmcamera_sp1628.so
+
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
-# DRM - from kipper
-bin/qseecomd|2423ad273f52311dbd2f3bb7e810734744e2e6ff
-lib/libdrmdecrypt.so|0cc6e6da79782fc4eeabc7c90d51dc5da7c12e7a
-vendor/lib64/libdrmfs.so|eb296e141d540b3ce53b79d1cf65365704914840
-vendor/lib64/libdrmtime.so|7473d9ce55ffca308eef83d7c3b1562c3b7adbee
-vendor/lib64/libQSEEComAPI.so|20d5a7ee87a26330be174eeb57b1fbd6f5f1f1e6
-vendor/lib64/librpmb.so|3b997aa65fe0dfbdca73cf6b2fc881fb54b3bfa2
-vendor/lib64/libssd.so|b9b74375796f931355c54e99dc946a6f1d025b02
+# Dirac
+lib/libDiracAPI_SHARED.so
+lib/soundfx/libdirac.so
+vendor/etc/diracmobile.config
+
+# DRM (from crackling)
+bin/qseecomd|ac14b419bcac711330014dc147df8719fe9d44da
+vendor/lib64/libdrmfs.so|645998dfcb0d204ef7eb5a2f7ccd96d71eb045be
+vendor/lib64/libdrmtime.so|71b44bd96e194b43b7c6e50a97eb5efd5f5f95e4
+vendor/lib64/libQSEEComAPI.so|5ec09d3085cc6a7157ed094d677bbfd1479fbac4
+vendor/lib64/librpmb.so|25bfd9f541db45756cf0b03bcc8284a90408ff18
+vendor/lib64/libssd.so|4e1ca3d1f0dc7deaa0fd58e1dc6407d8cd020852
 
 # GPS - from kipper
 -lib64/libloc_api_v02.so|9a978ba095a8c22b90127815a04b4c57e662bca9
@@ -399,13 +402,63 @@ vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
 vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
 vendor/lib/liblbs_core.so|3d8b57d39bf143cc5cce96cd11af34ec621044cb
 
-# Graphics firmware
-# Adreno 300 - from crackling
-# Adreno 420 - from kipper
-etc/firmware/a300_pfp.fw|899dbfad4812084971cfc1ff30f06a4b45c2d34c
-etc/firmware/a300_pm4.fw|94529206b45b6e9f6ed30dadabe4244a88a60975
+# Graphics (from crackling)
+vendor/lib64/egl/eglsubAndroid.so|1043fd1935186ef1d54328e17bbbce810ba8e8fa
+vendor/lib64/egl/eglSubDriverAndroid.so|951e33adb393a0acab1b260846e8364bad3a5453
+vendor/lib64/egl/libEGL_adreno.so|1c16185c27b4c143fee1fb42c650cb67a098f459
+vendor/lib64/egl/libESXEGL_adreno.so|2c1bed968825848bf976b5c1b5dbb547bf7fee83
+vendor/lib64/egl/libESXGLESv1_CM_adreno.so|d96ef62da1b5d2fb1b3a1dde020b04b9262e55ed
+vendor/lib64/egl/libESXGLESv2_adreno.so|39dfe0771d2803f12a9392948e624ef24baa3226
+vendor/lib64/egl/libGLESv1_CM_adreno.so|989b37ecbd527cd2eebf0a75c3f866135ef4cabb
+vendor/lib64/egl/libGLESv2_adreno.so|65e308bfebd1cda65f75e0c20fb52fc4c8e6e8a9
+vendor/lib64/egl/libq3dtools_adreno.so|38f331fbb2226a965454adf8743d3e8d96d3bf08
+vendor/lib64/egl/libQTapGLES.so|501a56719ca4751a31ed129aa40c01efd456436a
+vendor/lib64/egl/libRBEGL_adreno.so|206683ef320adeefca152f295f3f50962cdc4a9a
+vendor/lib64/egl/libRBGLESv1_CM_adreno.so|c06b86bb8498e075264ac89335fd4855f520ecb6
+vendor/lib64/egl/libRBGLESv2_adreno.so|3b148a5690527cdd36fa148bd429a4416ed9ce25
+vendor/lib64/libadreno_utils.so|783e04277c34666d35f0303f8eca769fd77982bc
+vendor/lib64/libc2d30-a4xx.so|797424c2a010602ab5a45d25ebc187403dd15fb9
+vendor/lib64/libC2D2.so|dffd5298977b3c4c1e86b54ce878da1afa869824
+vendor/lib64/libCB.so|781f60c2ae5d81a9062319e66b36234c0802320b
+vendor/lib64/libgsl.so|cb907d63bc1ea324090c2f5e3328b474c10ea16d
+vendor/lib64/libllvm-glnext.so|3b36887cbbe812661a8eaeeedcb3b2e65d731e7c
+vendor/lib64/libllvm-qcom.so|17356e4dd8c60e847ec96893cf5e73fb076f2c0a
+vendor/lib64/libOpenCL.so|9c1b3a8182d3a54d37f4fe875132b7738edcbec6
+vendor/lib64/libRSDriver_adreno.so|a4cb02110531c6c6d4f38a126f9fdaa5b023ea0c
+vendor/lib64/librs_adreno.so|a529eaeed785049313c4ea09ebeff8dffdd5bf88
+vendor/lib64/librs_adreno_sha1.so|581ce2ccd2cec714b235ac21a27c875c1754c875
+vendor/lib64/libsc-a3xx.so|7c65bbae865b7dc70a4ab8b5fecb0e160db1a087
+vendor/lib64/libscale.so|56b3c898de4c72dfcd483ed90bf9176b8b8edc70
+vendor/lib/egl/eglsubAndroid.so|b164a3a31ec30498babb25f731e0a8225be8d0aa
+vendor/lib/egl/eglSubDriverAndroid.so|6f5ae2f50bae4917173bc1f23eedbb932e068994
+vendor/lib/egl/libEGL_adreno.so|c30e4b0741e48c424aea23bf74dbf0e8b3a99369
+vendor/lib/egl/libESXEGL_adreno.so|7fb1078f65d5ccec000e90466e347308d7faa98b
+vendor/lib/egl/libESXGLESv1_CM_adreno.so|817a1ecda830c46c170b2733b2fbc26f97b04180
+vendor/lib/egl/libESXGLESv2_adreno.so|61ba345a1eff7ef153269dd88399e32950173d0f
+vendor/lib/egl/libGLESv1_CM_adreno.so|629e554170807f47a6790d559952ede06df0c9a6
+vendor/lib/egl/libGLESv2_adreno.so|70c7d8a44042fd0a9280c8ed2e9e738c3f14b0c3
+vendor/lib/egl/libq3dtools_adreno.so|4c3a394cd397e05b0794aa1bb16531da4c03855d
+vendor/lib/egl/libQTapGLES.so|900229ff94bbc44722d0df2a685b8ad2fbf1c51e
+vendor/lib/egl/libRBEGL_adreno.so|8c33769c191c889179f76663b8be63d300d26606
+vendor/lib/egl/libRBGLESv1_CM_adreno.so|8c8491f0f4decb8658af866e32fc083322095f20
+vendor/lib/egl/libRBGLESv2_adreno.so|4bd77c04fc435de9d198da0233513dda6e557dab
+vendor/lib/libadreno_utils.so|522db7791ef53fc0747fc66274e3d9d01ac7b406
+vendor/lib/libc2d30-a4xx.so|f9afec859c654cb646a27af8f9e16e8a8c412055
+vendor/lib/libC2D2.so|cea171dbb9aa813fb1d2255a8816cd67555bfded
+vendor/lib/libCB.so|7c0a1a9363e7e212aa67e0f9aed2acee65d4ec39
+vendor/lib/libgsl.so|252cd2ec1006268a45df66bdce947e647d1efe5b
+vendor/lib/libllvm-glnext.so|2e5785200004df231403074c0f6d7d87bf395745
+vendor/lib/libllvm-qcom.so|77f2a0adf9c36291a02055be3fcd1cf5fa82a113
+vendor/lib/libOpenCL.so|9c3f63df298c155a526d075c9d2643d01b59f98a
+vendor/lib/libRSDriver_adreno.so|2c9d23e4555f76c1aa28eb5aea2fa919081a8654
+vendor/lib/librs_adreno.so|7f0fe9802d2bd832b98848d7436ae1aafbe52221
+vendor/lib/librs_adreno_sha1.so|3289659eb1307377b20fb33ca4b8d42e15532612
+vendor/lib/libsc-a3xx.so|a03fc9f0c929cb4adf013f8a463cfbef68d48090
+vendor/lib/libscale.so|972cbd87794b4ce0a5c23db946acbafd4cd6d073
+
+# Graphics firmware (from crackling)
 etc/firmware/a420_pfp.fw|ceb61d9f1385b3f2956d72f33e0bd43cb12f72f0
-etc/firmware/a420_pm4.fw|d8ca599bd61cc85fec0b39c11ccd046d863ba7b3
+etc/firmware/a420_pm4.fw|96addc1f5cb6dd3a57fc40ef0a6ba8721d5b601f
 
 # Jpeg
 vendor/lib/libjpegdhw.so|9322bd2d5f87108de9f1a37478d67abdb5e4ef58
@@ -421,88 +474,98 @@ vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 
-# Perf
-bin/msm_irqbalance
-vendor/bin/perfd
-vendor/lib64/libqti-perfd-client.so
-vendor/lib/libqti-perfd-client.so
-
-# Qualcomm framework - from kipper
-bin/irsc_util|245ce5dc3473131d9a6f535bdfe06df692f77186
-etc/data/dsi_config.xml|d13162d50565af560811c8c253041d702af01d8e
-vendor/lib64/libdiag.so|e5f10c1331389e2c42a31a410ec03a0d7cc2f29f
-vendor/lib64/libdsi_netctrl.so|ecb40bf0d161583a6c07e53aed2d6ea6816cdbca
-vendor/lib64/libdsutils.so|ef6e31bec71ed92633ae0b8c6020254c2f8e4157
-vendor/lib64/libidl.so|91f217b00615074f176c629d7e55fdd2b043882b
-vendor/lib64/libqcci_legacy.so|00469d21530b187342683d6121074290d6785ded
-vendor/lib64/libqdi.so|8b02dd31d4ac7ab1d6c01f0cbbb1432a7ded9dbe
-vendor/lib64/libqdp.so|116b393b4da55ab9917dafe54cca8c71c14c6bc2
-vendor/lib64/libqmi_cci.so|3977ad1c96212fecda566bae0ec96710a550a9dc
-vendor/lib64/libqmi_client_helper.so|03256c8c0e49db57230da9d4b6f96cd764a6d92c
-vendor/lib64/libqmi_client_qmux.so|e6fb88dbc2a59d308a6e10145fdd978aa397254a
-vendor/lib64/libqmi_common_so.so|99b0875ef7f990aad3a12f85c8d83b04774f7f08
-vendor/lib64/libqmi_csi.so|ad6fc697d2a48cbf2ba58e71170f0fd3d9647c9d
-vendor/lib64/libqmi_encdec.so|2af5e4037e1ca0961a6afc4d49f39ad95e65ba80
-vendor/lib64/libqmiservices.so|ed9a8ad8a497f03dc4ab816f87b43df20e648f0d
-vendor/lib64/libqmi.so|acdfceb8e88fba0e4b151c5cdaac3a2e3a3e1163
-vendor/lib64/libsmemlog.so|2bbf6b1ba45e4c045a8ed478ad772be7547455e8
-vendor/lib/libdiag.so|eb5fb4740cf372950afb1651c4235d6eaf60edeb
-vendor/lib/libdsi_netctrl.so|4c257da07ffe3a4a46ca04da2894bd26424dc087
-vendor/lib/libdsutils.so|03cc1c591913c59c16ca79a75bb7276534badb73
-vendor/lib/libidl.so|ebbfe34beebb25e6178e3dc0d79152cdd81a93e1
-vendor/lib/libqcci_legacy.so|e7995fa019dadac9d0b880bb8cdfe8977671a9f2
-vendor/lib/libqdi.so|8ca9ccc62a9667d0580087b6d58de37bbdef662e
-vendor/lib/libqdp.so|d2a3e8728fe9e2e1ac3ec1bd5658a75e206739f6
-vendor/lib/libqmi_cci.so|e8d9e1b2f0fe8b3c82730db6c12dc5623946d266
-vendor/lib/libqmi_client_helper.so|7531f125ee8f97b8a00aad73204aa88e60316522
-vendor/lib/libqmi_client_qmux.so|75b87048e84eb4d97b0a2dd8aaebcdd147c51d43
-vendor/lib/libqmi_common_so.so|e756f9640d0661446c8bf184d0e24b8c315f6c78
-vendor/lib/libqmi_csi.so|1f557cfe4c55603a1b8b32a1690a0adc6551f890
-vendor/lib/libqmi_encdec.so|124cd8ab6ed24f2b315ece15e18a2345815d6901
-vendor/lib/libqmiservices.so|472bf5a9d61998d492cf309ca94e0c36b9ff3f28
-vendor/lib/libqmi.so|c7e6fdce02808c8ce8a0a82a6970e77a23cc5686
-vendor/lib/libsmemlog.so|b87c633d0faa143db4744bd17de5b03d600df15e
+# Perf (from kipper)
+bin/msm_irqbalance|fd509d009639a58fc9cda41d07375f3367e56e7f
+vendor/bin/perfd|9883cb98a52109728c0344c4a853efb94e41e31d
+vendor/lib64/libqti-perfd-client.so|69a9bee9b3683047cda4355b0b79114976dda896
+vendor/lib/libqti-perfd-client.so|c7f541d316b81dd9a5c05f9203a4c9d3cc551071
 
 # Postprocessing
 bin/mm-pp-daemon
+etc/calib.cfg
 vendor/lib64/libdisp-aba.so
 -vendor/lib64/libmm-abl.so
 vendor/lib64/libmm-abl-oem.so
 vendor/lib64/libmm-disp-apis.so
 
-# Radio - from kipper
--app/shutdownlistener/shutdownlistener.apk|39061bdec43a83c496f7ad4d8faed54317efb0ef
--app/QtiTelephonyService/QtiTelephonyService.apk|bf93f4c99a9741730a639cc26327b7ea0cab0bbc
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|315a9441e0277b5e3c5de193df8149dde1a20cdb
-bin/netmgrd|e500d52c6629145af0daeaf884ce8c031d09b72f
-bin/qmuxd|bb7e0d13cf1229e40754b84539ca2c396300f5c8
-bin/radish|61ac905ce0b0056d0c954e6197cd930dd75ea2c4
-bin/rmt_storage|08011978c658b72068edc3b47c215440af06c196
-etc/data/netmgr_config.xml|e28e1fe3cfbe89c89d66560160a10d53b11b8f61
-etc/data/qmi_config.xml|36966f438b68068eefbd4c314df5212f37d92af9
+# Qualcomm framework (from kipper)
+bin/irsc_util|930544024d17c8ddd89d0931259e32face034c34
+etc/data/dsi_config.xml|c4f6518596a519e9838159b1eaa99fa2ad86e24d
+vendor/lib64/libdiag.so|f59c5066ab1eba93f90a518c61b48dd4fcad48bc
+vendor/lib64/libdsi_netctrl.so|794b7873910b2e17cb27caef8b12b0f555acf7e9
+vendor/lib64/libdsutils.so|6d91c70c64e13c80cc64920858451058a83c2d28
+vendor/lib64/libidl.so|5cf38aa2fe70ff20813bde5069723432b44dcde6
+vendor/lib64/libqcci_legacy.so|8faee1f1712aa0b6d18964949c69f43d4f2386ab
+vendor/lib64/libqdi.so|4d842f69efb2dd9baded4ffa942b739ea6f06cde
+vendor/lib64/libqdp.so|049afd2cd465443bcb090c366fa3a1eab7459fb4
+vendor/lib64/libqmi_cci.so|2b250f3087e539acbc3b9231c939f636111bb257
+vendor/lib64/libqmi_client_helper.so|63d5ec7666fcdd25775bc3554fdf6c5ab9c057cc
+vendor/lib64/libqmi_client_qmux.so|fef9cd52862d971caa0fb4a6d7a5f5644f4e1989
+vendor/lib64/libqmi_common_so.so|e49e091394e69229cf03813b3d856dfdd97698c2
+vendor/lib64/libqmi_csi.so|11073b5b976a63cab60648a2009a95bb24bead53
+vendor/lib64/libqmi_encdec.so|d465ce4dc3aae9fef9061a56607f09bf74bd27fd
+vendor/lib64/libqmiservices.so|f9e8f7777bb9e6faa5dce3f1ad8ac159d4a6bc3b
+vendor/lib64/libqmi.so|298d415d48270c36d19f509304790003d280edae
+vendor/lib64/libsmemlog.so|37162480cdd93b25d4f2829f5aa53abbac7a1b8e
+vendor/lib/libdiag.so|3a72d687831a987ab7df6e8a4a4f72acc9fbf611
+vendor/lib/libdsi_netctrl.so|bfaf4ceabb2d9e5f5ed77023fa3c6c1a069609cc
+vendor/lib/libdsutils.so|4b739b8fa04ac8ff9c984fed445f0462c8000a46
+vendor/lib/libidl.so|eadf4f3f7d25ec642cc457d4f6d16912682b0508
+vendor/lib/libqcci_legacy.so|0c7658add55e45afbc063ee2d29d0d5209b6308b
+vendor/lib/libqdi.so|a2fa87b9706a6f9607125a745f94f00b7a2a8a5d
+vendor/lib/libqdp.so|9f497dbe3e9c41d76c4bdaa4477cdaaf1b111857
+vendor/lib/libqmi_cci.so|5c2773bb105d9d54ea123ceab40739a581c5ae40
+vendor/lib/libqmi_client_helper.so|6cf26004327f52fa3aabdeb253a21783e419dae9
+vendor/lib/libqmi_client_qmux.so|1fbd42793f8266fd2d676f2300a1d2f88c3f4d29
+vendor/lib/libqmi_common_so.so|1f38f77da048d51297091bb9f4ccac7462edaf91
+vendor/lib/libqmi_csi.so|c9392c194058010074442190eb051e9e59cc6f7b
+vendor/lib/libqmi_encdec.so|cab1c426bd8673f5e98f847cb0a95adc5d2978f4
+vendor/lib/libqmiservices.so|fab93a6ae9eac9e81a245bba13ee891de23dd0fe
+vendor/lib/libqmi.so|84ec6a6d853aa00ed32f60d3a58db496567a9f38
+vendor/lib/libsmemlog.so|c632a70764ee1d6416ce1758f4d10cd6983d204d
+
+# Radio (from kipper)
+-app/shutdownlistener/shutdownlistener.apk|61bf2ac0e7c312036423f2c77a310aa310d06f7b
+bin/netmgrd|f6e0a4f92bd0cc8e9cf7be1d2a60ffde4ce7123a
+bin/qmuxd|d36ad140da7833c0b82ecb28262360d3e974cb0d
+bin/radish|9cb3017bc4ece05809662d76f9141044b1daee6c
+bin/rmt_storage|ddec53a336abfe30f96d0eaa83565936166c571f
+etc/data/netmgr_config.xml|b2d7410f8f357ca38477d41f012fcc72b8e27cf7
+etc/data/qmi_config.xml|c5a3fbd2f4149a6ce34f84dc94b58fe59d1fb90f
 etc/permissions/qcnvitems.xml|dc0e70cace2317b5169a454cbc2bbf8887c18d55
 etc/permissions/qcrilhook.xml|9fc58a3d54d20ac1d53bab14608815121aefbce5
-etc/permissions/qti_telephony_common.xml|717249b183472fde45f511ea5bb3cd24fe43d8c5
--framework/qcnvitems.jar|930fb60defd600bcf6b353ccfa33b3d1a4af6b8a
--framework/qcrilhook.jar|730ea285996fbb46f67af687c478a833a42e668b
-framework/qti-telephony-common.jar|97d23b52db3773005e51eac7b9df1701c99a416c
-framework/QtiTelephonyServicelibrary.jar|6c00c64b6e06b20bf48beea91dcb0d7bc0894e6d
-vendor/lib64/libcneapiclient.so|38112f63d242165de6908ed21a07dfde87c1807c
-vendor/lib64/libconfigdb.so|2fe46de7e0c9c72e04156e842da7487b387da446
-vendor/lib64/libmdmdetect.so|1c354db8b3b7ab9de2f80a9867dce375869fa26d
-vendor/lib64/liblqe.so|a82a2515b9e59eae010419b0f8b27ddee073902b
-vendor/lib64/libnetmgr.so|f692ba6fdddf2dd37dbaa9d71e983ed934cf2f88
-vendor/lib64/libperipheral_client.so|f05e771b2ad9568e9c8ded01036083bba1a41362
-vendor/lib64/libril-qc-qmi-1.so|3a353a42a1da3ae1c81b3850939962b978455084
-vendor/lib64/libril-qc-radioconfig.so|0117c27403045abc2a1225a6fb10c0da033daa39
-vendor/lib64/libril-qcril-hook-oem.so|a69877b93164229de10260559aa2e02fcd9700f7
-vendor/lib64/libsystem_health_mon.so|9ad529e01e048da5df35e7dca85b14078f75a4f3
-vendor/lib64/libxml.so|00c701f4003f037f5c6e96c4c97f172e18b96038
+-framework/qcnvitems.jar|b50c25a4760313acd6ad770bf1ee207b5376b53e
+-framework/qcrilhook.jar|4ac8f925c1e76da54279867a14c32e5bc868b6df
+lib64/librilqmiservices.so|f2e5672219ea59c479f2389c70ac0907a7a78265
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|8ca1e2e05596914c57d3a4ce0f367d810da7bb7f
+vendor/lib64/libcneapiclient.so|042ad03479f951ff8246db48eaa7fa156bada4e8
+vendor/lib64/libconfigdb.so|672cef86baab5ed9e4683c527f762c8accdff493
+vendor/lib64/liblqe.so|cb61ddbbd43e46ae56ef5f98c47b631d58808326
+vendor/lib64/libmdmdetect.so|67760bce9c33e844924cdef4ce7e6bcc2ccee46d
+vendor/lib64/libnetmgr.so|eb1d3db436403428f2d6bcba8a141a3faaf332a8
+vendor/lib64/libperipheral_client.so|ac882d73f7279065fffe4ca040246103a3154c1c
+vendor/lib64/libril-qc-ltedirectdisc.so|a3048c2656f5f6eaf1149d2e262f8abf35296975
+vendor/lib64/libril-qc-qmi-1.so|a8ebaeab579bcac5fcde662e8f321279e3d30dfd
+vendor/lib64/libril-qc-radioconfig.so|c969caddfb5d59582a892c34671c604b3dfed802
+vendor/lib64/libril-qcril-hook-oem.so|f651e4a0b6a5e0a38660dd8c2a5ded71ae14efb9
+vendor/lib64/libsettings.so|619d754049a659313511950244e67cca0075cd35
+vendor/lib64/libsystem_health_mon.so|71adfec8a25dae86d5ad9bc54e9a88ea4fcc2b35
+vendor/lib64/libxml.so|26d53a36db5ea231729a85f385638afff4a2fe60
+vendor/lib/libmdmdetect.so|2c57282fce7367471e44a35305ace773ae89fd30
+
 
 # Sensors
-bin/sensor_select.sh
-vendor/lib/hw/libsensors.lsm6db0.so
-vendor/lib64/hw/libsensors.lsm6db0.so
+vendor/lib/libsensors.lsm6db0.so
+vendor/lib64/libsensors.lsm6db0.so
+
+# TFA9887
+etc/firmware/seltech_mono.cnt
+
+# Thermal
+vendor/bin/thermal-engine
+vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
+vendor/lib/libthermalclient.so
 
 # Time services
 -app/TimeService/TimeService.apk
@@ -521,23 +584,7 @@ etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
-# Thermal
-vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
-vendor/lib64/libthermalioctl.so
-
-# Light
-lib/libminui.so
-lib64/libminui.so
-
-# FM
-bin/fm_qsoc_patches
-bin/ftmdaemon
-
-# WideVine - from bullhead
-vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
-vendor/lib/libwvm.so|59c4c078f4b897ddac8f665309b7a3f25522f207
-vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
-vendor/lib/drm/libdrmwvmplugin.so|3bee766222895f524421eb996ca6a08bcf95f19f
-vendor/lib/mediadrm/libwvdrmengine.so|301e0ef26cfc3a22efd52ebf4bb095d0a33bc68d
+# WideVine (from kipper)
+vendor/lib/libwvdrm_L3.so|7e77482481197997294a834bfbc817a01b6075cd
+vendor/lib/libWVStreamControlAPI_L3.so|61673304827483d44b735a3dd08f0783d10ce92d
+vendor/lib/mediadrm/libwvdrmengine.so|416e44ba482f1f97258ff8793b0a810219ac632d
