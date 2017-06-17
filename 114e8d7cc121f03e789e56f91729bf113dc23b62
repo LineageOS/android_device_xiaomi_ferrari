@@ -1,0 +1,265 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_77a75450",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "This blob is useless",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_1764c820",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Camera 64bit blobs are useless",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_3769ccf9",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "This is not present in crackling...",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 68
+      },
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_d76d0006",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Useless blob",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_f77284e4",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Useless blob",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_977778d4",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Wat? Prebuild minui?",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_b774fccf",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, don\u0027t comment. Also, you need this file if you\u0027re really using kipper qmi stack",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_5781f08d",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, not comment",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_975e9844",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, don\u0027t comment. Also, you need this file if you\u0027re really using kipper qmi stack",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_b75b9c53",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, don\u0027t comment. Also, you need this file if you\u0027re really using kipper qmi stack",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_d7442076",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Is this used by anything?",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_777e74b0",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, not comment",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_174b6888",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, not comment",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_3750ec31",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, not comment",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_57581056",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 1,
+      "message": "Remove, not comment",
+      "revId": "114e8d7cc121f03e789e56f91729bf113dc23b62",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

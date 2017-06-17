@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_f749248c",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-17T13:57:51Z",
+      "side": 0,
+      "message": "You need the 32bit version of this blob, don\u0027t remove it",
+      "revId": "4793b61b1c9c2c6670ef6793094c99134b130b4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
