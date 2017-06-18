@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_a9fedc69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T13:23:47Z",
+      "side": 1,
+      "message": "You could have a more neutral commit message like:\nferrari: Override build fingerprint",
+      "revId": "0e4bea0bc619e88cdac592d441903dba889eefe2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
