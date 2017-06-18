@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_29764c3f",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T12:32:37Z",
+      "side": 1,
+      "message": "I don\u0027t think this config file used by the current gps stack",
+      "revId": "b9dc4096828a64c38ffb921b5b414c8f37eb6176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
