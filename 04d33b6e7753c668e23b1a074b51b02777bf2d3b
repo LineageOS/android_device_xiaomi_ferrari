@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_89ce7859",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T13:20:40Z",
+      "side": 1,
+      "message": "You could also move all these camera sensors in a separate \"# Camera sensor\" section like other cyngn devices",
+      "revId": "04d33b6e7753c668e23b1a074b51b02777bf2d3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_69d1b4fa",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T13:20:40Z",
+      "side": 1,
+      "message": "Since you started cleanup of the camera section, it makes sense to move all other eeprom files below too.",
+      "revId": "04d33b6e7753c668e23b1a074b51b02777bf2d3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_c9ec80ca",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T13:20:40Z",
+      "side": 1,
+      "message": "Why do you need this? cyngn devices can use FM without this blob and a few other changes",
+      "revId": "04d33b6e7753c668e23b1a074b51b02777bf2d3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_a9e7bce3",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T13:20:40Z",
+      "side": 1,
+      "message": "This isn\u0027t fm related iirc",
+      "revId": "04d33b6e7753c668e23b1a074b51b02777bf2d3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
