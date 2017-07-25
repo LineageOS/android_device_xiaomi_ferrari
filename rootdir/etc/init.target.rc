@@ -34,6 +34,11 @@ on post-fs-data
     chown system system /dev/sysmatdrv
     chmod 0660 /dev/sysmatdrv
 
+    chown system system /persist/mac.bd.bin
+    chown system system /persist/mac.wlan.bin
+    chmod 0660 /persist/mac.bd.bin
+    chmod 0660 /persist/mac.wlan.bin
+
 on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
@@ -101,6 +106,12 @@ service btsnoop /system/bin/btsnoop
    class late_start
    disabled
    oneshot
+
+service readmac /system/bin/readmac
+    class main
+    user root
+    group root system radio qcom_diag
+    oneshot
 
 service ppd /system/bin/mm-pp-daemon
     class late_start
